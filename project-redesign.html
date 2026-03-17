@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get 笔记 产品改进提案 — Wendy 作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    [data-lucide] { display:inline-block; vertical-align:middle; flex-shrink:0; stroke-width:1.75; }
+    .ic-sm { width:13px; height:13px; }
+    .ic-md { width:20px; height:20px; }
+    .ic-lg { width:28px; height:28px; }
+    .ic-sage { stroke:var(--sage-dark); }
+    /* ============================
+       NAV
+    ============================ */
+    .project-nav-simple { justify-content: space-between; padding: 0 56px; }
+    .project-nav-simple .project-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--sage-dark); font-weight: 500; text-decoration: none;
+      font-size: 14px; transition: color 0.2s;
+    }
+    .project-nav-simple .project-back:hover { color: var(--sage); }
+    .project-nav-simple .print-btn {
+      font-size: 13px; color: var(--gray); background: var(--off-white);
+      border: 1px solid var(--light-gray); border-radius: 6px;
+      padding: 8px 16px; cursor: pointer; transition: all 0.2s;
+      text-decoration: none;
+    }
+    .project-nav-simple .print-btn:hover { border-color: var(--sage); color: var(--sage-dark); }
+
+    /* ============================
+       HERO
+    ============================ */
+    .rd-hero {
+      padding: 120px 56px 64px;
+      background: linear-gradient(135deg, #f4f6f1 0%, #edf2e7 100%);
+      position: relative; overflow: hidden;
+    }
+    .rd-hero::before {
+      content: 'GET';
+      position: absolute; right: -20px; top: 10px;
+      font-family: var(--font-serif); font-size: 200px; font-weight: 900;
+      color: rgba(164,181,123,0.07); pointer-events: none; line-height: 1;
+    }
+    .rd-hero .eyebrow {
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 12px;
+    }
+    .rd-hero h1 {
+      font-family: var(--font-serif); font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: var(--black); margin-bottom: 8px;
+    }
+    .rd-hero .subtitle {
+      font-size: 17px; color: var(--dark); max-width: 600px; margin-bottom: 28px; line-height: 1.7;
+    }
+    .rd-meta {
+      display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 13px; color: var(--gray);
+    }
+    .rd-meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .rd-meta .lbl { color: var(--sage-dark); font-weight: 600; }
+
+    /* ============================
+       SECTION
+    ============================ */
+    .rd-section { max-width: 1100px; margin: 0 auto; padding: 56px 56px 64px; }
+    .rd-section.bg-off { background: var(--off-white); max-width: 100%; }
+    .rd-section.bg-off .rd-inner { max-width: 1100px; margin: 0 auto; }
+    .rd-section h2 {
+      font-family: var(--font-serif); font-size: 22px; font-weight: 700;
+      color: var(--black); margin-bottom: 6px;
+    }
+    .rd-divider { width: 40px; height: 3px; background: var(--sage); border-radius: 2px; margin: 10px 0 24px; }
+    .rd-section p, .rd-section li { font-size: 15px; line-height: 1.75; color: var(--dark); margin-bottom: 10px; }
+    .rd-section ul { margin: 8px 0 16px 20px; }
+    .section-label { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
+
+    /* ============================
+       USER ANALYSIS — 研究方法 / 分层
+    ============================ */
+    .rd-method-box {
+      background: #f9f6f0; border-left: 4px solid var(--sage-dark);
+      border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0 28px;
+    }
+    .rd-method-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--sage-dark); margin-bottom: 8px;
+    }
+    .rd-sub-h {
+      font-size: 16px; font-weight: 600; color: var(--black);
+      margin: 28px 0 12px;
+    }
+    .rd-tier-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin: 0 0 20px;
+    }
+    .rd-tier-table th {
+      background: var(--sage-dark); color: #fff; font-weight: 600;
+      padding: 11px 16px; text-align: left; font-size: 13px;
+    }
+    .rd-tier-table td {
+      padding: 11px 16px; border-bottom: 1px solid var(--light-gray);
+      color: var(--dark); line-height: 1.5;
+    }
+    .rd-tier-table tr:last-child td { border-bottom: none; }
+    .rd-tier-table tr:nth-child(even) td { background: var(--sage-pale); }
+    .rd-focus-box {
+      background: #fff; border: 1px solid var(--light-gray);
+      border-radius: 12px; padding: 20px 24px; margin: 20px 0 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .rd-focus-label {
+      font-size: 14px; font-weight: 600; color: var(--black);
+      margin-bottom: 14px;
+    }
+    .rd-focus-reasons { display: flex; flex-direction: column; gap: 12px; }
+    .rd-focus-reason {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .rd-reason-num {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--sage-pale); border: 1.5px solid var(--sage-light);
+      color: var(--sage-dark); font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .rd-focus-reason p { font-size: 14px; line-height: 1.7; margin: 0; color: var(--dark); }
+
+    /* ============================
+       USER ANALYSIS — flow / insight
+    ============================ */
+    .user-flow {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap; margin: 28px 0;
+      background: #fff; border-radius: 14px; padding: 32px 24px;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .flow-node {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; min-width: 110px; text-align: center;
+    }
+    .flow-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .fi-collect { background: #fff3cc; }
+    .fi-ai { background: var(--sage-pale); }
+    .fi-export { background: #e8f4fd; }
+    .fi-notion { background: #f0f0f0; }
+    .flow-node p { font-size: 13px; font-weight: 500; color: var(--dark); margin: 0; line-height: 1.4; }
+    .flow-node small { font-size: 11px; color: var(--gray); }
+    .flow-arrow { color: var(--sage); font-size: 20px; padding: 0 8px; align-self: center; margin-bottom: 20px; }
+    .user-insight {
+      background: var(--sage-pale); border-left: 4px solid var(--sage);
+      padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0;
+      font-size: 14px; color: var(--dark); line-height: 1.65;
+    }
+    .user-tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .utag {
+      font-size: 12px; padding: 5px 12px; border-radius: 20px; font-weight: 500;
+      background: var(--sage-pale); color: var(--sage-dark);
+      border: 1px solid var(--sage-light);
+    }
+
+    /* ============================
+       PROBLEM CARDS
+    ============================ */
+    .problem-list { display: flex; flex-direction: column; gap: 32px; margin: 24px 0; }
+    .problem-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .problem-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 24px; border-bottom: 1px solid var(--light-gray);
+    }
+    .problem-num {
+      width: 32px; height: 32px; border-radius: 50%; background: var(--sage);
+      color: #fff; font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .problem-header h3 { font-size: 16px; font-weight: 600; color: var(--black); margin: 0; }
+    .problem-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .problem-side {
+      padding: 24px; border-right: 1px solid var(--light-gray);
+    }
+    .problem-side:last-child { border-right: none; }
+    .side-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .label-before { color: #c0392b; }
+    .label-after { color: var(--sage-dark); }
+    .problem-img {
+      width: 100%; max-width: 220px; border-radius: 12px;
+      display: block; margin: 0 auto 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .problem-desc { font-size: 14px; color: var(--dark); line-height: 1.65; margin: 0; }
+    .problem-desc strong { color: var(--black); }
+    .solution-box {
+      background: var(--sage-pale); border-radius: 10px;
+      padding: 14px 16px; margin-top: 12px;
+    }
+    .solution-box p { font-size: 14px; margin: 0; line-height: 1.65; color: var(--dark); }
+    .solution-box ul { margin: 6px 0 0 16px; }
+    .solution-box li { font-size: 14px; margin-bottom: 4px; color: var(--dark); }
+    .impact-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .impact-tag {
+      font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 500;
+    }
+    .impact-ux { background: #d4eaf9; color: #0d4a70; }
+    .impact-retain { background: var(--sage-pale); color: var(--sage-dark); }
+    .impact-trust { background: #fce4ec; color: #880e4f; }
+
+    /* ============================
+       STRATEGY SECTION
+    ============================ */
+    .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .strategy-card {
+      border-radius: 14px; padding: 24px; border: 1px solid var(--light-gray); background: #fff;
+    }
+    .strategy-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--black); }
+    .strategy-card .s-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--sage-dark); margin-bottom: 10px; display: block;
+    }
+    .strategy-card p { font-size: 14px; line-height: 1.7; margin-bottom: 10px; color: var(--dark); }
+    .strategy-card ul { margin: 4px 0 0 16px; }
+    .strategy-card li { font-size: 14px; margin-bottom: 6px; color: var(--dark); }
+    .funnel-box {
+      display: flex; flex-direction: column; gap: 0;
+      margin: 24px 0; max-width: 640px;
+    }
+    .funnel-step {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 20px; background: #fff;
+      border: 1px solid var(--light-gray); margin-bottom: -1px;
+    }
+    .funnel-step:first-child { border-radius: 10px 10px 0 0; }
+    .funnel-step:last-child { border-radius: 0 0 10px 10px; }
+    .funnel-icon { width:20px; height:20px; flex-shrink:0; display:inline-block; }
+    .funnel-step p { font-size: 14px; margin: 0; color: var(--dark); line-height: 1.5; }
+    .funnel-arrow-down { text-align: center; color: var(--sage); font-size: 18px; margin: 2px 0; }
+
+    /* ============================
+       MARKETPLACE
+    ============================ */
+    .market-flow {
+      display: flex; align-items: flex-start; justify-content: center;
+      gap: 16px; flex-wrap: wrap; margin: 24px 0; padding: 28px;
+      background: #fff; border-radius: 14px; border: 1px solid var(--light-gray);
+    }
+    .mf-node {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; max-width: 120px; text-align: center;
+    }
+    .mf-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center; font-size: 24px;
+    }
+    .mfi-creator { background: #fff3cc; }
+    .mfi-platform { background: var(--sage-pale); }
+    .mfi-buyer { background: #e8f4fd; }
+    .mf-node p { font-size: 13px; font-weight: 500; color: var(--dark); margin: 0; line-height: 1.4; }
+    .mf-node small { font-size: 11px; color: var(--gray); }
+    .mf-arrow { color: var(--sage); font-size: 20px; align-self: center; padding-top: 28px; }
+
+    /* ============================
+       EXPECTED OUTCOME
+    ============================ */
+    .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .outcome-card {
+      background: #fff; border-radius: 12px; padding: 20px;
+      border: 1px solid var(--light-gray); text-align: center;
+    }
+    .outcome-card .oc-num {
+      font-family: var(--font-serif); font-size: 32px; font-weight: 700;
+      color: var(--sage-dark); margin-bottom: 4px;
+    }
+    .outcome-card .oc-label { font-size: 13px; color: var(--gray); line-height: 1.4; }
+    .outcome-note { font-size: 13px; color: var(--gray); margin-top: 8px; font-style: italic; }
+
+    /* ============================
+       PRINT
+    ============================ */
+    @media print {
+      #cursor, #cursor-follower, #navbar { display: none !important; }
+      body { cursor: auto !important; }
+      .rd-section, .rd-section.bg-off { padding: 32px 40px; }
+      .problem-body, .strategy-grid { grid-template-columns: 1fr 1fr; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      a[href]:after { content: none; }
+    }
+
+    @media (max-width: 768px) {
+      .rd-hero, .rd-section { padding-left: 24px; padding-right: 24px; }
+      .problem-body, .strategy-grid, .outcome-grid { grid-template-columns: 1fr; }
+      .user-flow { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <nav id="navbar" class="scrolled project-nav-simple">
+    <a href="index.html#product-world" class="project-back">← 返回作品集</a>
+    <a class="print-btn" onclick="window.print()">导出 PDF ↓</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="rd-hero">
+    <p class="eyebrow">产品界面改进提案 · UX 体验优化</p>
+    <h1>Get 笔记 改进提案</h1>
+    <p class="subtitle">基于真实使用场景的体验问题发现与改进建议，兼顾免费用户留存与付费转化的策略重构。</p>
+    <div class="rd-meta">
+      <span><span class="lbl">分析时间</span> 2025</span>
+      <span><span class="lbl">平台</span> App · 网页 · 小程序</span>
+      <span><span class="lbl">方法</span> 一手体验 · 问题发现 · 改进提案</span>
+      <span><span class="lbl">关注点</span> 交互缺陷 · 免费用户策略 · 付费模式创新</span>
+    </div>
+  </section>
+
+  <!-- 01 用户分析 -->
+  <section class="rd-section">
+    <h2>01 / 用户研究：分层识别，聚焦切口</h2>
+    <div class="rd-divider"></div>
+    <p class="section-label">综合多源数据，识别核心用户群，有理由地选择最有分析价值的切入视角。</p>
+
+    <!-- 研究方法 -->
+    <div class="rd-method-box">
+      <p class="rd-method-label"><i data-lucide="database" class="ic-sm ic-sage"></i> 研究方法</p>
+      <p style="margin:0;font-size:14px;line-height:1.75;color:var(--dark);">本分析综合三类来源：<strong>① 本人作为目标用户群的深度使用体验</strong>；<strong>② 爬虫抓取的 App Store 评论区高频反馈</strong>；<strong>③ 小红书用户讨论及真实使用分享</strong>。用户画像与问题发现均经过多源印证，而非单一主观判断。</p>
+    </div>
+
+    <!-- 用户分层 -->
+    <h3 class="rd-sub-h">Get 笔记核心目标用户分层</h3>
+    <table class="rd-tier-table">
+      <thead>
+        <tr>
+          <th>用户类型</th>
+          <th>核心场景</th>
+          <th>典型诉求</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>上班族</strong></td>
+          <td>会议录音 + 纪要总结</td>
+          <td>多人识别准、转写快、省去手动整理</td>
+        </tr>
+        <tr>
+          <td><strong>学生党</strong></td>
+          <td>课堂录音 + 拍照记笔记</td>
+          <td>快速整理重点、多端同步</td>
+        </tr>
+        <tr>
+          <td><strong>自由职业者 / 创业者</strong></td>
+          <td>多平台内容 AI 总结</td>
+          <td>高效提炼、节省梳理时间</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>从商业角度，用户分为<strong>免费用户</strong>与<strong>付费会员</strong>（¥199/年，享更大存储与更长录音时长）。此外还有硬件录音笔用户——续航强、无需保持手机开启，适合长会议场景。</p>
+
+    <!-- 聚焦免费用户的理由 -->
+    <div class="rd-focus-box">
+      <p class="rd-focus-label">本次分析聚焦「免费用户」，原因如下：</p>
+      <div class="rd-focus-reasons">
+        <div class="rd-focus-reason">
+          <span class="rd-reason-num">01</span>
+          <p>免费用户是增长漏斗的顶端，体量最大，直接决定转化基本盘。App Store 评论中多次出现「免费功能够用」「会推荐给身边人」，说明服务好免费用户才有口碑拉新的基础。</p>
+        </div>
+        <div class="rd-focus-reason">
+          <span class="rd-reason-num">02</span>
+          <p>免费用户反映的痛点，本质是产品的基础体验问题——标签无法筛选、表格分享截断。这些是「地基」，地基不牢，再高阶的功能也留不住人。</p>
+        </div>
+        <div class="rd-focus-reason">
+          <span class="rd-reason-num">03</span>
+          <p>免费用户容忍度低，稍有不满即流失，是留存提升空间最大的人群。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 使用路径 -->
+    <h3 class="rd-sub-h">我的使用路径（学生党 · 免费用户）</h3>
+    <p>以下是我作为学生党 / 免费用户的典型使用路径。值得注意的是：<strong>我并没有把 Get 笔记当作知识管理的终点</strong>，而是当作「收藏 + AI 总结」的中转站，最终知识沉淀在 Notion。这一路径在小红书用户反馈中高频出现，并非个例。</p>
+
+    <div class="user-flow">
+      <div class="flow-node">
+        <div class="flow-icon fi-collect"><i data-lucide="smartphone" class="ic-md" style="stroke:#b08800"></i></div>
+        <p>刷小红书 / B站 / 公众号</p>
+        <small>发现好内容</small>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <div class="flow-icon fi-ai"><i data-lucide="sparkles" class="ic-md ic-sage"></i></div>
+        <p>发给 Get 笔记 AI 总结</p>
+        <small>快速提取要点</small>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <div class="flow-icon fi-export"><i data-lucide="monitor" class="ic-md" style="stroke:#1a6fa0"></i></div>
+        <p>电脑端查看总结</p>
+        <small>根据摘要整理</small>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <div class="flow-icon fi-notion"><i data-lucide="clipboard-list" class="ic-md" style="stroke:#555"></i></div>
+        <p>整合到 Notion</p>
+        <small>最终知识沉淀</small>
+      </div>
+    </div>
+
+    <!-- 核心洞察 + 旁证 -->
+    <div class="user-insight">
+      <strong>核心洞察：</strong>免费用户没有足够的分类管理工具（无法用标签筛选、知识库有限额），导致笔记越积越乱，自然放弃将 Get 笔记作为知识管理终点，转而将其用作「收藏 + AI 总结」中转站，最终知识沉淀在其他工具（如 Notion）中。<br><br>
+      这意味着 <strong>Get 笔记正在流失「重度用户」的核心使用场景</strong>，而这部分用户恰恰最有付费转化价值。<br><br>
+      App Store 评论印证了这一判断——多条评论提到「标签不能筛选」「笔记越积越乱」「最后还是用 Notion 整理」，与本人路径高度一致，说明<strong>知识库组织能力的缺失正在系统性地阻断付费转化路径</strong>。
+    </div>
+  </section>
+
+  <!-- 02 问题发现 -->
+  <section class="rd-section bg-off">
+    <div class="rd-inner">
+      <h2>02 / 问题发现与改进方案</h2>
+      <div class="rd-divider"></div>
+      <p class="section-label">从真实使用中发现 3 个体验问题，每个问题附改进建议与预期影响。</p>
+
+      <div class="problem-list">
+
+        <!-- 问题 1 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-num">1</span>
+            <h3>语音录制暂停后无「取消」按钮</h3>
+          </div>
+          <div class="problem-body">
+            <div class="problem-side">
+              <p class="side-label label-before">现状 · 问题</p>
+              <img src="assets/get-voice-no-cancel.png" alt="语音录制暂停截图" class="problem-img" />
+              <p class="problem-desc">录音进入「已暂停」状态后，底部仅有「播放▶」和绿色「完成」按钮。<strong>没有「取消」或「放弃」入口</strong>，用户若想放弃当前录音，无法操作，只能强制完成或退出页面，存在误操作风险。</p>
+              <div class="impact-row">
+                <span class="impact-tag impact-ux">交互缺陷</span>
+                <span class="impact-tag impact-trust">误操作风险</span>
+              </div>
+            </div>
+            <div class="problem-side">
+              <p class="side-label label-after">改进建议</p>
+              <div class="solution-box">
+                <ul>
+                  <li>在「已暂停」状态底部增加<strong>「取消录音」</strong>按钮（灰色次要按钮，位置与「完成」对称）</li>
+                  <li>点击「取消」弹出二次确认弹窗：「确定放弃本次录音？录音内容将不保存」，防止二次误操作</li>
+                  <li>参考语音速记的交互逻辑，对所有录音类型保持一致</li>
+                </ul>
+              </div>
+              <div class="impact-row">
+                <span class="impact-tag impact-ux">降低误操作率</span>
+                <span class="impact-tag impact-retain">提升操作信任感</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 问题 2 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-num">2</span>
+            <h3>分享生成图片：表格内容被截断</h3>
+          </div>
+          <div class="problem-body">
+            <div class="problem-side">
+              <p class="side-label label-before">现状 · 问题</p>
+              <img src="assets/get-share-table.png" alt="分享生成图片表格截断" class="problem-img" />
+              <p class="problem-desc">笔记中包含表格时，生成分享图片的「定义」列内容<strong>被右侧裁切</strong>，文字显示不全（如「描述AI角色、性格的…」被截断）。表格无法自适应图片宽度，导致分享出去的内容信息不完整，影响传播质量。</p>
+              <div class="impact-row">
+                <span class="impact-tag impact-ux">渲染缺陷</span>
+                <span class="impact-tag impact-trust">内容完整性受损</span>
+              </div>
+            </div>
+            <div class="problem-side">
+              <p class="side-label label-after">改进建议</p>
+              <div class="solution-box">
+                <ul>
+                  <li>生成图片时，表格按<strong>内容自适应列宽</strong>，或在超出时自动换行</li>
+                  <li>若表格过宽，生成图片时自动切换为<strong>横版/长图</strong>布局，保证完整显示</li>
+                  <li>可提供<strong>「表格转列表」</strong>选项：将表格内容转为更适合移动端图片的列表格式</li>
+                </ul>
+              </div>
+              <div class="impact-row">
+                <span class="impact-tag impact-ux">提升内容完整性</span>
+                <span class="impact-tag impact-retain">增强分享传播力</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 问题 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-num">3</span>
+            <h3>标签可创建但无法筛选，免费用户分类能力缺失</h3>
+          </div>
+          <div class="problem-body">
+            <div class="problem-side">
+              <p class="side-label label-before">现状 · 问题</p>
+              <img src="assets/get-tag-nofiler.png" alt="标签管理界面" class="problem-img" />
+              <p class="problem-desc">用户可以给笔记添加标签（如「AI链接笔记」「Google Colab」），但<strong>笔记列表不支持按标签筛选</strong>。标签仅作为装饰性元数据存在，无法发挥分类与检索价值。</p>
+              <p class="problem-desc">同时，免费用户知识库容量有限，<strong>缺乏基础分类管理工具</strong>，导致笔记越积越乱，用户自然放弃将 Get 笔记作为知识管理终点，转而使用 Notion 等工具。</p>
+              <div class="impact-row">
+                <span class="impact-tag impact-ux">功能完整性缺失</span>
+                <span class="impact-tag impact-trust">用户流失风险</span>
+              </div>
+            </div>
+            <div class="problem-side">
+              <p class="side-label label-after">改进建议</p>
+              <div class="solution-box">
+                <ul>
+                  <li><strong>开放免费用户标签筛选</strong>：在笔记列表页顶部增加标签过滤栏，免费用户可多标签筛选</li>
+                  <li><strong>开放基础文件夹功能</strong>（无限数量），降低组织管理门槛，让用户真正「用起来」</li>
+                  <li><strong>付费差异化转移到知识库创新</strong>（见下节），而非依靠限制基础分类来逼付费</li>
+                </ul>
+              </div>
+              <div class="impact-row">
+                <span class="impact-tag impact-retain">提升免费用户留存</span>
+                <span class="impact-tag impact-ux">激活标签价值</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 付费策略重构 -->
+  <section class="rd-section">
+    <h2>03 / 付费策略重构建议</h2>
+    <div class="rd-divider"></div>
+    <p class="section-label">免费层做「够用」，付费层做「真正的智能价值」，以内容市场化创造新增长点。</p>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <span class="s-label">现状问题</span>
+        <h3>付费差异化主要靠「容量限制」</h3>
+        <p>目前会员核心差异是知识库容量更大、录音时长更长。这是一种<strong>以限制免费用户体验</strong>换取付费转化的策略。</p>
+        <p>对于像我这类中度用户，限制分类工具的体验不会带来付费意愿，反而会让用户转向竞品或把 Get 笔记降级为中转工具。</p>
+      </div>
+      <div class="strategy-card" style="background: var(--sage-pale); border-color: var(--sage-light);">
+        <span class="s-label">改进建议</span>
+        <h3>以「智能价值」驱动付费</h3>
+        <p>开放免费用户的基础分类能力（标签筛选 + 文件夹），同时将付费价值升级到真正的 AI 智能功能：</p>
+        <ul>
+          <li><strong>跨笔记 AI 对话</strong>：对整个知识库提问检索</li>
+          <li><strong>AI 知识图谱</strong>：自动生成笔记关联可视化</li>
+          <li><strong>智能复习</strong>：遗忘曲线 + 自动生成测验题</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-size:17px;font-weight:600;margin:32px 0 8px;color:var(--black);">知识广场：买断制内容市场化</h3>
+    <p>受益于用户积累高质量知识库后，引入<strong>知识广场</strong>功能：用户可将自己的知识库设为付费访问，买断制定价，平台收取佣金。</p>
+
+    <div class="market-flow">
+      <div class="mf-node">
+        <div class="mf-icon mfi-creator"><i data-lucide="pen-line" class="ic-md" style="stroke:#8a6200"></i></div>
+        <p>创作者用户</p>
+        <small>整理高质量知识库</small>
+      </div>
+      <span class="mf-arrow">→</span>
+      <div class="mf-node">
+        <div class="mf-icon mfi-platform"><i data-lucide="store" class="ic-md ic-sage"></i></div>
+        <p>知识广场</p>
+        <small>上架 · 买断定价<br>平台抽佣</small>
+      </div>
+      <span class="mf-arrow">→</span>
+      <div class="mf-node">
+        <div class="mf-icon mfi-buyer"><i data-lucide="users" class="ic-md" style="stroke:#1a6fa0"></i></div>
+        <p>消费者用户</p>
+        <small>一次性购买<br>访问完整知识库</small>
+      </div>
+    </div>
+
+    <p><strong>飞轮效应：</strong></p>
+    <div class="funnel-box">
+      <div class="funnel-step">
+        <i data-lucide="layers" class="funnel-icon ic-md ic-sage"></i>
+        <p>免费分类工具开放 → 用户有动力在 Get 笔记深度沉淀知识</p>
+      </div>
+      <div class="funnel-arrow-down">↓</div>
+      <div class="funnel-step">
+        <i data-lucide="award" class="funnel-icon ic-md ic-sage"></i>
+        <p>高质量知识库产生 → 优质创作者愿意在知识广场变现</p>
+      </div>
+      <div class="funnel-arrow-down">↓</div>
+      <div class="funnel-step">
+        <i data-lucide="trending-up" class="funnel-icon ic-md ic-sage"></i>
+        <p>知识广场内容丰富 → 吸引更多用户使用 → 知识库用量增加 → 自然触达免费限额 → 转化付费会员</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 预期效果 -->
+  <section class="rd-section bg-off">
+    <div class="rd-inner">
+      <h2>04 / 预期效果与验证指标</h2>
+      <div class="rd-divider"></div>
+      <p class="section-label">以下为改进方案的预期目标，上线后需通过数据验证假设。</p>
+
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <p class="oc-num">↓</p>
+          <p class="oc-label">语音录制误操作率<br><strong>取消按钮上线后</strong></p>
+        </div>
+        <div class="outcome-card">
+          <p class="oc-num">↑</p>
+          <p class="oc-label">免费用户 7 日留存<br><strong>标签筛选开放后</strong></p>
+        </div>
+        <div class="outcome-card">
+          <p class="oc-num">↑</p>
+          <p class="oc-label">知识库使用深度<br><strong>付费转化自然触发率</strong></p>
+        </div>
+      </div>
+
+      <p class="outcome-note">注：以上指标为方向性假设，具体目标值需结合产品现有数据基线制定。</p>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var cursor = document.getElementById('cursor');
+      var follower = document.getElementById('cursor-follower');
+      if (!cursor || !follower) return;
+      var mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX; mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px'; cursor.style.top = mouseY + 'px';
+      });
+      function animate() {
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+        follower.style.left = followerX + 'px'; follower.style.top = followerY + 'px';
+        requestAnimationFrame(animate);
+      }
+      animate();
+      if (window.lucide) lucide.createIcons();
+      document.querySelectorAll('a, button').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { document.body.classList.add('cursor-hover'); });
+        el.addEventListener('mouseleave', function() { document.body.classList.remove('cursor-hover'); });
+      });
+    })();
+  </script>
+</body>
+</html>

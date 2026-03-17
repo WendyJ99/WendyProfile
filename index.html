@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wendy — 正在成为更好版本的自己</title>
+  <meta name="description" content="Wendy 的个人作品集 — 产品设计 · AI 探索 · 工具创作" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- 自定义鼠标 -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- 导航 -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">W<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">关于</a></li>
+      <li><a href="#ai-world">AI 探索</a></li>
+      <li><a href="#product-world">产品</a></li>
+      <li><a href="#tools-world">工具</a></li>
+      <li><a href="#life-world">生活</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-bg-letter" aria-hidden="true">W</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Portfolio · 2026 · 应届生求职中</p>
+      <h1 class="hero-name" id="heroName">Wendy</h1>
+      <p class="hero-tagline">正在成为更好版本的自己</p>
+      <div class="hero-facets">
+        <span>AI 探索</span>
+        <span>产品 Sense</span>
+        <span>工具创作</span>
+        <span>生活 &amp; 表达</span>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-line"></span>
+      <span>向下探索</span>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="about-chat-wrap">
+      <p class="about-section-label">About</p>
+
+      <div class="chat-stream" id="chatStream">
+        <div class="chat-bubble-row row-question" data-text="你是谁？">
+          <div class="bubble bubble-q"><span class="bubble-text"></span></div>
+        </div>
+        <div class="chat-bubble-row row-answer"
+             data-text="我叫 Wendy，刚刚完成硕士学业，准备进入产品的世界。">
+          <div class="bubble-avatar">W</div>
+          <div class="bubble bubble-a"><span class="bubble-text"></span></div>
+        </div>
+        <div class="chat-bubble-row row-question" data-text="你想做什么？">
+          <div class="bubble bubble-q"><span class="bubble-text"></span></div>
+        </div>
+        <div class="chat-bubble-row row-answer"
+             data-text="想在 AI 时代做出有趣又有用的产品。">
+          <div class="bubble-avatar">W</div>
+          <div class="bubble bubble-a"><span class="bubble-text"></span></div>
+        </div>
+        <div class="chat-bubble-row row-question" data-text="平时在做什么？">
+          <div class="bubble bubble-q"><span class="bubble-text"></span></div>
+        </div>
+        <div class="chat-bubble-row row-answer"
+             data-text="学大模型、做产品分析、写代码、拍照、画画、健身……大概就是这样。总有一件事在同时进行着。">
+          <div class="bubble-avatar">W</div>
+          <div class="bubble bubble-a"><span class="bubble-text"></span></div>
+        </div>
+      </div>
+
+      <div class="chat-expand-area">
+        <p class="expand-hint">还想了解更多？点击提问</p>
+        <div class="expand-qa">
+          <button class="qa-q" aria-expanded="false">
+            <span>你为什么对大模型感兴趣？</span><span class="qa-arrow">↓</span>
+          </button>
+          <div class="qa-a">
+            <div class="bubble-avatar">W</div>
+            <div class="bubble bubble-a bubble-expand-a">
+              大模型正在改变产品的边界。我想理解它的逻辑，不只是会用工具，而是能用产品视角判断：什么时候该用、怎么用、用了之后用户感受如何。这是一种新的产品能力。
+            </div>
+          </div>
+        </div>
+        <div class="expand-qa">
+          <button class="qa-q" aria-expanded="false">
+            <span>没有正式工作经验，你凭什么？</span><span class="qa-arrow">↓</span>
+          </button>
+          <div class="qa-a">
+            <div class="bubble-avatar">W</div>
+            <div class="bubble bubble-a bubble-expand-a">
+              我做过完整的产品原型、搭过 AI 客服 SaaS 原型、造了一个帮自己投简历的插件。没有真实用户，但逻辑和流程是完整的。而且我还在继续...
+            </div>
+          </div>
+        </div>
+        <div class="expand-qa">
+          <button class="qa-q" aria-expanded="false">
+            <span>你有什么与众不同的地方？</span><span class="qa-arrow">↓</span>
+          </button>
+          <div class="qa-a">
+            <div class="bubble-avatar">W</div>
+            <div class="bubble bubble-a bubble-expand-a">
+              我在学产品，学代码，也在学UX；在做理性分析，也在拍照和画画。我相信一个爱观察生活的人，能做出有温度的产品和独特的设计。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORLD 01: AI 探索 ============ -->
+  <section id="ai-world" class="world-section world-dark">
+    <!-- 字符山脉 canvas 背景 -->
+    <canvas id="aiCharCanvas" aria-hidden="true"></canvas>
+    <div class="world-inner">
+      <header class="world-header reveal">
+        <h2 class="world-title ai-label">01 / AI 探索</h2>
+        <p class="world-subtitle">让机器 帮人做对的事</p>
+        <p class="world-desc">我不满足于"会用 ChatGPT"。我想理解提示词背后的逻辑，想知道怎么把大模型嵌入真实的产品场景。</p>
+      </header>
+      <div class="projects-grid two-col reveal reveal-delay-2">
+        <article class="project-card ai-card">
+          <div class="card-meta">
+            <span class="card-status status-active">进行中</span>
+            <span class="card-year">2025</span>
+          </div>
+          <h3 class="card-title">大模型应用开发实践</h3>
+          <p class="card-desc">系统学习大模型应用开发，包括 Prompt Engineering、RAG、Agent 构建等核心概念，并尝试将技术落地到具体产品场景。</p>
+          <div class="card-skills">
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">AI Agent</span>
+            <span class="skill-tag">产品视角</span>
+          </div>
+        </article>
+        <article class="project-card ai-card">
+          <div class="card-meta">
+            <span class="card-status status-active">进行中</span>
+            <span class="card-year">2025</span>
+          </div>
+          <h3 class="card-title">Kaggle 数据分析探索</h3>
+          <p class="card-desc">通过 Kaggle 竞赛数据集练习探索性数据分析（EDA）与可视化，培养从数据中发现产品洞察的能力，而不只是"跑模型"。</p>
+          <div class="card-skills">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">EDA</span>
+            <span class="skill-tag">数据可视化</span>
+            <span class="skill-tag">Pandas</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORLD 02: 产品 Sense — 数字白板 ============ -->
+  <section id="product-world" class="world-section world-light wb-section">
+    <span class="world-bg-num" aria-hidden="true">02</span>
+    <div class="world-inner">
+      <header class="world-header reveal">
+        <h2 class="world-title product-label">02 / 产品 Sense</h2>
+        <p class="world-subtitle">从用户痛点 到产品决策</p>
+        <p class="world-desc">好的产品决策不靠直觉，靠用研、靠数据、靠换位思考。每个原型背后，都是一次认真的提问。</p>
+      </header>
+
+      <!-- 白板研究簇 -->
+      <div class="wb-canvas reveal reveal-delay-2">
+
+        <!-- 研究簇 1：App 设计 + 便利贴 -->
+        <div class="wb-cluster wbc-app">
+          <div class="wb-sticky wbs-yellow">
+            <p class="wbs-head"><i data-lucide="user" style="width:12px;height:12px;display:inline-block;vertical-align:middle;stroke-width:2;stroke:currentColor"></i> 用户画像</p>
+            
+          </div>
+          <div class="wb-sticky wbs-pink">
+            <p class="wbs-head"><i data-lucide="frown" style="width:12px;height:12px;display:inline-block;vertical-align:middle;stroke-width:2;stroke:currentColor"></i> 痛点</p>
+            
+          </div>
+          <a href="project-commitgo.html" class="wb-card-link">
+            <article class="wb-card">
+              <div class="card-meta">
+                <span class="card-status status-done">已完成</span>
+                <span class="card-year">2025</span>
+              </div>
+              <h3 class="card-title">创新创业项目产品设计与开发</h3>
+              <p class="card-desc">亲子任务激励 App：家长发布任务、孩子打卡赚金币、兑换约定奖励。负责访谈、需求分析、原型与交互，完成走查与可用性测试。</p>
+              <div class="card-skills">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">用户访谈</span>
+                <span class="skill-tag">原型设计</span>
+              </div>
+            </article>
+          </a>
+          <span class="wb-smile" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
+        </div>
+
+        <!-- 研究簇 2：用研 + 迷你柱状图 -->
+        <div class="wb-cluster wbc-research">
+          <div class="wb-chart" aria-hidden="true">
+            <p class="wbc-title">竞品对比</p>
+            <div class="wbc-bars">
+              <div class="wbc-bar" style="--h:62%"><span>A</span></div>
+              <div class="wbc-bar wbc-bar-hi" style="--h:88%"><span>B</span></div>
+              <div class="wbc-bar" style="--h:45%"><span>C</span></div>
+              <div class="wbc-bar" style="--h:74%"><span>D</span></div>
+            </div>
+          </div>
+          <a href="project-ota.html" class="wb-card-link">
+            <article class="wb-card">
+              <div class="card-meta">
+                <span class="card-status status-done">已完成</span>
+                <span class="card-year">2025</span>
+              </div>
+              <h3 class="card-title">竞品分析</h3>
+              <p class="card-desc">两款 OTA 产品的定位、功能结构、用户体验与商业模式深度对比，含数据图表与体验实测。</p>
+              <div class="card-skills">
+                <span class="skill-tag">竞品分析</span>
+                <span class="skill-tag">用户体验</span>
+                <span class="skill-tag">数据分析</span>
+              </div>
+            </article>
+          </a>
+          <div class="wb-arrow" aria-hidden="true">
+            <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="24">
+              <path d="M4 12 Q40 4 74 12" stroke="rgba(159,115,115,0.45)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+              <path d="M66 7 L74 12 L66 17" stroke="rgba(159,115,115,0.45)" stroke-width="1.5" fill="none"/>
+            </svg>
+            <span>洞察</span>
+          </div>
+        </div>
+
+        <!-- 研究簇 3：改版 + 线框叠放 + 红色批注 -->
+        <div class="wb-cluster wbc-redesign">
+          <div class="wb-wf-stack" aria-hidden="true">
+            <div class="wb-wf wb-wf-3"></div>
+            <div class="wb-wf wb-wf-2"></div>
+            <div class="wb-wf wb-wf-1">
+              <div class="wb-wf-nav"></div>
+              <div class="wb-wf-hero"></div>
+              <div class="wb-wf-line"></div>
+              <div class="wb-wf-line wb-wf-line-s"></div>
+            </div>
+          </div>
+          <a href="project-redesign.html" class="wb-card-link">
+            <article class="wb-card">
+              <div class="card-meta">
+                <span class="card-status status-done">已完成</span>
+                <span class="card-year">2025</span>
+              </div>
+              <h3 class="card-title">Get 笔记 产品改进提案</h3>
+              <p class="card-desc">基于真实使用场景，发现 3 个体验问题，提出交互改进方案与付费策略重构建议，含知识广场买断制创新方向。</p>
+              <div class="card-skills">
+                <span class="skill-tag">UX 评估</span>
+                <span class="skill-tag">产品策略</span>
+                <span class="skill-tag">付费转化</span>
+              </div>
+            </article>
+          </a>
+          <div class="wb-annotation" aria-hidden="true">改！</div>
+        </div>
+
+      </div><!-- /wb-canvas -->
+    </div>
+  </section>
+
+  <!-- ============ WORLD 03: 工具创作 — 复古未来主义 ============ -->
+  <section id="tools-world" class="retro-section">
+    <div class="retro-inner">
+
+      <!-- 左侧：文字区 -->
+      <div class="retro-left reveal">
+        <h2 class="retro-title">03 / 工具创作</h2>
+        <p class="retro-subtitle">遇到麻烦，<em>就动手造。</em></p>
+        <p class="retro-desc">我喜欢把现实问题变成能跑起来的东西。不一定完美，但是真实的需求、真实的解法。</p>
+
+        <!-- 规格表：仿产品说明书排版 -->
+        <div class="retro-specs">
+          <div class="retro-spec-row">
+            <div class="retro-spec">
+              <p class="rs-label">PROJECT 01</p>
+              <p class="rs-name">简历投递助手</p>
+              <p class="rs-sub">浏览器插件 · 效率工具 · 持续迭代中</p>
+            </div>
+            <div class="retro-spec">
+              <p class="rs-label">PROJECT 02</p>
+              <p class="rs-name">AI 客服 SaaS 原型</p>
+              <p class="rs-sub">Dify · 大模型 · B 端工作流</p>
+            </div>
+          </div>
+          <div class="retro-spec-row">
+            <div class="retro-spec">
+              <p class="rs-label">PROJECT 03</p>
+              <p class="rs-name">个人网站</p>
+              <p class="rs-sub">HTML/CSS · 信息架构 · 视觉设计</p>
+            </div>
+            <div class="retro-spec retro-spec-ghost">
+              <p class="rs-label">PHILOSOPHY</p>
+              <p class="rs-name">真实需求驱动</p>
+              <p class="rs-sub">先造给自己用，再说服别人</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：电脑主机 + 键盘 -->
+      <div class="retro-right reveal reveal-delay-2">
+        <div class="figmint-wrap">
+          <div class="figmint-shadow"></div>
+          <div class="figmint-inner">
+            <!-- 主机机身 -->
+            <div class="figmint-body">
+              <!-- 屏幕外框 -->
+              <div class="figmint-bezel">
+                <div class="figmint-screen">
+                  <div class="figmint-scanlines"></div>
+                  <div class="figmint-vignette"></div>
+                  <div class="figmint-screen-inner">
+                    <!-- 左侧边栏 -->
+                    <div class="figmint-sidebar">
+                      <div class="figmint-sitem"><span class="figmint-dot figmint-dot-blue"></span>System</div>
+                      <div class="figmint-sitem"><span class="figmint-dot figmint-dot-orange"></span>Disk A</div>
+                      <div class="figmint-sitem"><span class="figmint-dot figmint-dot-gray"></span>Trash</div>
+                      <div class="figmint-sitem"><span class="figmint-dot figmint-dot-gray"></span>Write</div>
+                      <div class="figmint-sitem"><span class="figmint-dot figmint-dot-gray"></span>Think</div>
+                    </div>
+                    <!-- 主内容区 -->
+                    <div class="figmint-main">
+                      <div class="figmint-os-label">FigOS 1.0</div>
+                      <div class="figmint-editor">
+                        <div class="figmint-editor-bar">
+                          <span>Untitled.txt</span><span>[x]</span>
+                        </div>
+                        <div class="figmint-editor-content">Good morning. Your memo is drafted, your files are sorted, and your calendar is set. Ready when you are.<span class="figmint-blink">▌</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 软盘槽 -->
+              <div class="figmint-floppy"></div>
+              <!-- 散热孔 -->
+              <div class="figmint-vents">
+                <div class="figmint-vent"></div><div class="figmint-vent"></div>
+                <div class="figmint-vent"></div><div class="figmint-vent"></div>
+                <div class="figmint-vent"></div><div class="figmint-vent"></div>
+                <div class="figmint-vent"></div><div class="figmint-vent"></div>
+              </div>
+              <!-- 贴纸 -->
+              <div class="figmint-sticker-orange"></div>
+              <div class="figmint-sticker-star">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#2A6BBA" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <div class="figmint-sticker-rainbow">
+                <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M 16 50 A 34 34 0 0 1 84 50" fill="none" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M 22 50 A 28 28 0 0 1 78 50" fill="none" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M 28 50 A 22 22 0 0 1 72 50" fill="none" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M 34 50 A 16 16 0 0 1 66 50" fill="none" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M 40 50 A 10 10 0 0 1 60 50" fill="none" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                  <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#FF4B4B" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 16 50 A 34 34 0 0 1 84 50" fill="none" stroke="#FF9933" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 22 50 A 28 28 0 0 1 78 50" fill="none" stroke="#FFD633" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 28 50 A 22 22 0 0 1 72 50" fill="none" stroke="#33CC66" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 34 50 A 16 16 0 0 1 66 50" fill="none" stroke="#3399FF" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 40 50 A 10 10 0 0 1 60 50" fill="none" stroke="#9966FF" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <!-- 键盘 -->
+            <div class="figmint-keyboard">
+              <div class="figmint-kb">
+                <div class="figmint-kb-row">
+                  <div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div>
+                </div>
+                <div class="figmint-kb-row figmint-kb-r2">
+                  <div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div>
+                </div>
+                <div class="figmint-kb-row figmint-kb-r3">
+                  <div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div>
+                </div>
+                <div class="figmint-kb-row figmint-kb-r4">
+                  <div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div><div class="figmint-key"></div>
+                </div>
+                <div class="figmint-kb-row figmint-kb-r5">
+                  <div class="figmint-key figmint-key-fn"></div>
+                  <div class="figmint-key figmint-key-space"></div>
+                  <div class="figmint-key figmint-key-fn"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ WORLD 04: 生活 & 表达 ============ -->
+  <section id="life-world" class="world-section world-warm">
+    <span class="world-bg-num" aria-hidden="true">04</span>
+    <div class="world-inner">
+      <header class="world-header reveal">
+        <h2 class="world-title life-label">04 / 生活 &amp; 表达</h2>
+        <p class="world-subtitle">观察是一种 专业能力</p>
+        <p class="world-desc">摄影、画笔、文字，都是认识世界的方式。一个爱观察生活的人，才能做出有温度的产品。</p>
+      </header>
+      <div class="life-content reveal reveal-delay-1">
+        <div class="life-intro">
+          <p>我用手机拍照——不追求器材，只追求那一瞬间的光线和情绪。画画也是，不讲技法，就是想把眼睛看见的东西留下来。</p>
+          <p>这些习惯让我在做产品时，不只是在做功能，而是在问：这里会让人感觉如何？</p>
+          <div class="sns-card">
+            <p class="sns-label">小红书</p>
+            <p>分享产品面试准备心得，以及学习大模型过程中真实踩过的坑。不是教程，是笔记。</p>
+          </div>
+        </div>
+        <div class="photo-grid">
+          <!-- <figure class="photo-item photo-item-wide">
+            <img src="life-world1.svg" alt="数字插画创作" loading="lazy" />
+            <figcaption>数字插画</figcaption>
+          </figure> -->
+          <figure class="photo-item">
+            <img src="lifeworld2.png" alt="产品设计白板" loading="lazy" />
+            <figcaption>产品思考</figcaption>
+          </figure>
+          <figure class="photo-item">
+            <img src="lifeworld3.png" alt="建筑手绘线稿" loading="lazy" />
+            <figcaption>手绘线稿</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="contact-bg-text" aria-hidden="true">Hi</div>
+    <div class="contact-inner">
+      <p class="contact-eyebrow">不只是简历</p>
+      <h2 class="contact-heading">来聊聊吧</h2>
+      <p class="contact-sub">如果你觉得我们可能聊得来，不管是工作机会还是有意思的想法</p>
+      <!-- <a href="mailto:your@email.com" class="contact-email">your@email.com</a> -->
+      <div class="contact-links">
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">小红书</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" download>下载简历 ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p class="footer-copy">© 2025 Wendy &nbsp;·&nbsp; All Rights Reserved</p>
+    <p class="footer-made">Made with <span>♥</span> and Cursor</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
