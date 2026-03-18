@@ -239,6 +239,7 @@ nav.scrolled {
   letter-spacing: -0.02em;
   margin-bottom: 28px;
   overflow: hidden;
+  padding-bottom: 0.12em; /* 留出 y 等字母下伸部分空间，避免被裁切 */
 }
 
 .hero-name .char {
