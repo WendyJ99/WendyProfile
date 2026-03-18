@@ -291,6 +291,204 @@
     .outcome-note { font-size: 13px; color: var(--gray); margin-top: 8px; font-style: italic; }
 
     /* ============================
+       INTRO QUOTE
+    ============================ */
+    .rd-intro-quote {
+      background: #fff; border-left: 4px solid var(--sage);
+      border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 0 0 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .rd-intro-quote p { font-size: 14px; line-height: 1.8; color: var(--dark); margin-bottom: 8px; }
+    .rd-intro-quote p:last-child { margin-bottom: 0; }
+
+    /* ============================
+       QUADRANT CHART
+    ============================ */
+    .quadrant-wrap {
+      margin: 0 0 40px; background: #fff;
+      border-radius: 16px; border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05); padding: 28px 32px 24px;
+    }
+    .quadrant-title {
+      text-align: center; font-size: 13px; color: var(--gray);
+      letter-spacing: 0.06em; margin-bottom: 20px; font-weight: 500;
+    }
+    .quadrant-outer {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      grid-template-rows: 1fr 28px;
+      gap: 0;
+    }
+    .quadrant-y-axis {
+      grid-row: 1; grid-column: 1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: space-between;
+      padding: 8px 0; gap: 6px;
+    }
+    .quadrant-y-axis span {
+      font-size: 11px; color: var(--gray); writing-mode: vertical-rl;
+      transform: rotate(180deg); line-height: 1;
+    }
+    .quadrant-y-axis .qy-label {
+      font-size: 11px; color: var(--gray); writing-mode: vertical-rl;
+      transform: rotate(180deg); letter-spacing: 0.08em; font-weight: 500;
+    }
+    .quadrant-grid-area {
+      grid-row: 1; grid-column: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr; gap: 12px;
+    }
+    .quadrant-x-axis {
+      grid-row: 2; grid-column: 2;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 0 0; font-size: 11px; color: var(--gray);
+    }
+    .quadrant-x-axis .qx-center { color: var(--gray); font-size: 11px; letter-spacing: 0.06em; font-weight: 500; }
+    .quadrant-cell {
+      border-radius: 12px; padding: 18px 20px; min-height: 130px;
+    }
+    .qc-priority  { background: #d8ede6; }
+    .qc-schedule  { background: #fde8cc; }
+    .qc-optional  { background: #e6e6e6; }
+    .qc-defer     { background: #ede8e2; }
+    .quadrant-cell h4 {
+      font-size: 15px; font-weight: 700; margin: 0 0 3px;
+    }
+    .qc-priority h4  { color: #1a6b4a; }
+    .qc-schedule h4  { color: #8a4f00; }
+    .qc-optional h4  { color: #444; }
+    .qc-defer h4     { color: #5a4a3a; }
+    .quadrant-cell .qc-sub {
+      font-size: 11px; color: var(--gray); margin: 0 0 10px; line-height: 1.4;
+    }
+    .quadrant-cell ul {
+      margin: 0; padding: 0; list-style: none;
+    }
+    .quadrant-cell li {
+      font-size: 12.5px; color: var(--dark); margin-bottom: 3px; line-height: 1.55;
+    }
+    .qc-priority li::before { content: '·'; margin-right: 5px; color: #2d8a60; }
+    .qc-schedule li::before { content: '·'; margin-right: 5px; color: #c07830; }
+    .qc-optional li::before { content: '·'; margin-right: 5px; color: #888; }
+    .qc-defer li::before    { content: '·'; margin-right: 5px; color: #9a8470; }
+
+    /* ============================
+       PROBLEM SOURCE + DECISION
+    ============================ */
+    .problem-source {
+      padding: 9px 24px; background: #f9f9f9;
+      border-bottom: 1px solid var(--light-gray);
+      font-size: 12.5px; color: var(--gray);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .problem-source strong { color: var(--dark); font-weight: 500; }
+    .problem-decision {
+      margin-top: 14px;
+      background: #f0f7f3;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid #c4ddd0;
+    }
+    .decision-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--sage-dark);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+    }
+    .problem-decision p {
+      font-size: 14px; line-height: 1.75; color: var(--dark); margin-bottom: 8px;
+    }
+    .problem-decision p:last-of-type { margin-bottom: 0; }
+    .problem-decision .impact-row { margin-top: 14px; }
+    .problem-decision strong { color: var(--black); }
+    .impact-convert { background: #e8f4fd; color: #0d4a70; }
+    .impact-fix { background: #e6f4ee; color: #1a5c3a; }
+
+    /* ============================
+       00 节专用组件
+    ============================ */
+    .rd-positioning {
+      background: #fff; border: 1px solid var(--light-gray);
+      border-radius: 12px; padding: 20px 24px; margin: 0 0 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      font-size: 15px; line-height: 1.8; color: var(--dark);
+    }
+    .rd-positioning strong { color: var(--black); }
+    .highlight-row td {
+      background: var(--sage-pale) !important;
+      color: var(--sage-dark) !important; font-weight: 600;
+    }
+    .rd-personal-note {
+      background: #f9f6f0; border-left: 4px solid #c4a060;
+      border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 24px 0 0;
+      font-size: 14px; line-height: 1.8; color: var(--dark);
+    }
+    .rd-personal-note strong { color: var(--black); }
+
+    /* ============================
+       METRIC CARDS (04节)
+    ============================ */
+    .metric-list { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 0; }
+    .metric-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .metric-card-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 24px; border-bottom: 1px solid var(--light-gray);
+      background: #fafdf8;
+    }
+    .metric-card-header .mc-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--sage); color: #fff;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .metric-card-header h3 { font-size: 15px; font-weight: 600; color: var(--black); margin: 0; }
+    .metric-rows { padding: 0 24px; }
+    .metric-row {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 12px; padding: 13px 0;
+      border-bottom: 1px solid var(--light-gray);
+      align-items: baseline;
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-lbl {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--sage-dark);
+      padding-top: 1px; line-height: 1.5;
+    }
+    .metric-val {
+      font-size: 13.5px; color: var(--dark); line-height: 1.7;
+    }
+    .metric-val strong { color: var(--black); }
+    .metric-layer-divider {
+      margin: 0 24px;
+      border: none; border-top: 1px dashed var(--light-gray);
+    }
+    .metric-layer-label {
+      padding: 12px 24px 0;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--gray);
+    }
+
+    /* ============================
+       RISK BOX
+    ============================ */
+    .risk-box {
+      background: #fff8f0; border-left: 4px solid #e8a050;
+      border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 32px 0 0;
+    }
+    .risk-box .risk-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: #b06a10; margin-bottom: 12px;
+    }
+    .risk-box p { font-size: 14px; line-height: 1.8; color: var(--dark); margin-bottom: 8px; }
+    .risk-box p:last-child { margin-bottom: 0; }
+    .risk-box strong { color: var(--black); }
+
+    /* ============================
        PRINT
     ============================ */
     @media print {
@@ -320,7 +518,7 @@
 
   <!-- HERO -->
   <section class="rd-hero">
-    <p class="eyebrow">产品界面改进提案 · UX 体验优化</p>
+    <p class="eyebrow">产品改进提案 · 体验优化 · 策略重构</p>
     <h1>Get 笔记 改进提案</h1>
     <p class="subtitle">基于真实使用场景的体验问题发现与改进建议，兼顾免费用户留存与付费转化的策略重构。</p>
     <div class="rd-meta">
@@ -328,6 +526,91 @@
       <span><span class="lbl">平台</span> App · 网页 · 小程序</span>
       <span><span class="lbl">方法</span> 一手体验 · 问题发现 · 改进提案</span>
       <span><span class="lbl">关注点</span> 交互缺陷 · 免费用户策略 · 付费模式创新</span>
+    </div>
+  </section>
+
+  <!-- 00 产品概览 -->
+  <section class="rd-section bg-off">
+    <div class="rd-inner">
+      <h2>00 / 产品概览</h2>
+      <div class="rd-divider"></div>
+      <p class="section-label">在进入用户分析前，先建立对产品的基本认知框架。</p>
+
+      <!-- 产品定位 -->
+      <h3 class="rd-sub-h">产品定位</h3>
+      <div class="rd-positioning">
+        Get 笔记的核心价值是<strong>用 AI 把「记笔记」这件事的门槛降到接近零</strong>——语音开口即记、多平台链接粘贴即总结、拍照即提取，让信息收集从「需要坐下来打字」变成「随时随地一个动作」。
+      </div>
+
+      <!-- 与同类产品的差异 -->
+      <h3 class="rd-sub-h">与同类产品的差异</h3>
+      <table class="rd-tier-table" style="margin-bottom:20px;">
+        <thead>
+          <tr>
+            <th>产品</th>
+            <th>核心定位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Notion</td>
+            <td>结构化知识管理，重组织，轻采集</td>
+          </tr>
+          <tr>
+            <td>Flomo</td>
+            <td>碎片化思维记录，极简，无结构</td>
+          </tr>
+          <tr>
+            <td>印象笔记</td>
+            <td>全平台剪藏 + 存档，重存储</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Get 笔记</td>
+            <td>AI 驱动的内容采集 + 自动整理，重效率</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 工作流图 -->
+      <div class="user-flow">
+        <div class="flow-node">
+          <div class="flow-icon fi-collect"><i data-lucide="download" class="ic-md" style="stroke:#b08800"></i></div>
+          <p>信息收集</p>
+          <small>语音 / 链接 / 拍照</small>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">
+          <div class="flow-icon fi-ai"><i data-lucide="sparkles" class="ic-md ic-sage"></i></div>
+          <p>AI 整理</p>
+          <small>自动摘要 / 提取要点</small>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">
+          <div class="flow-icon fi-export"><i data-lucide="book-open" class="ic-md" style="stroke:#1a6fa0"></i></div>
+          <p>知识内化</p>
+          <small>标签分类 / 回顾</small>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">
+          <div class="flow-icon fi-notion"><i data-lucide="share-2" class="ic-md" style="stroke:#555"></i></div>
+          <p>知识复用</p>
+          <small>从输入到输出</small>
+        </div>
+      </div>
+
+      <div class="user-insight" style="margin-top:16px;">
+        Get 笔记填补的是「内容收集到ai整理之间」的效率缺口，而非替代结构化笔记工具。这也决定了它的核心用户是<strong>信息摄入量大、但没有时间手动整理</strong>的人群。
+      </div>
+
+      <!-- 商业模式 -->
+      <h3 class="rd-sub-h">商业模式</h3>
+      <p>采用免费 + 付费会员模式（¥199/年），此外还有硬件录音笔用户——续航强、无需保持手机开启，适合长会议场景。免费用户可使用核心 AI 功能，付费差异化主要体现在知识库容量与录音时长。本次分析将重点审视这一差异化策略是否合理——<strong>详见 03 节</strong>。</p>
+
+      <!-- 为什么选它 -->
+      <div class="rd-personal-note">
+        <strong>我为什么选它分析</strong><br>
+        我本人是 Get 笔记的真实用户。它确实提升了我信息收集与内化的效率，让碎片内容不再散落各处。但在使用过程中，我发现自己始终没有把它当作知识管理的终点——这个反差让我想深入看看，问题出在哪里。
+      </div>
     </div>
   </section>
 
@@ -372,7 +655,7 @@
       </tbody>
     </table>
 
-    <p>从商业角度，用户分为<strong>免费用户</strong>与<strong>付费会员</strong>（¥199/年，享更大存储与更长录音时长）。此外还有硬件录音笔用户——续航强、无需保持手机开启，适合长会议场景。</p>
+    <!-- <p>从商业角度，用户分为<strong>免费用户</strong>与<strong>付费会员</strong>（¥199/年，享更大存储与更长录音时长）。此外还有硬件录音笔用户——续航强、无需保持手机开启，适合长会议场景。</p> -->
 
     <!-- 聚焦免费用户的理由 -->
     <div class="rd-focus-box">
@@ -384,7 +667,7 @@
         </div>
         <div class="rd-focus-reason">
           <span class="rd-reason-num">02</span>
-          <p>免费用户反映的痛点，本质是产品的基础体验问题——标签无法筛选、表格分享截断。这些是「地基」，地基不牢，再高阶的功能也留不住人。</p>
+          <p>免费用户反映的痛点，本质是产品的基础体验。这些是「地基」，地基不牢，再高阶的功能也留不住人。</p>
         </div>
         <div class="rd-focus-reason">
           <span class="rd-reason-num">03</span>
@@ -436,7 +719,72 @@
     <div class="rd-inner">
       <h2>02 / 问题发现与改进方案</h2>
       <div class="rd-divider"></div>
-      <p class="section-label">从真实使用中发现 3 个体验问题，每个问题附改进建议与预期影响。</p>
+      <p class="section-label">基于多源体验与用户反馈，梳理出 13 项问题，综合优先级后聚焦 4 个可落地改进展开分析。</p>
+
+      <!-- 引言 -->
+      <div class="rd-intro-quote">
+        <p>本次体验共梳理出 <strong>13 项问题</strong>，涵盖三个维度：基础阅读与编辑体验、知识库组织与管理能力、多端与外设生态支持。</p>
+        <p>综合<strong>影响用户范围</strong>与<strong>产品侧修复成本</strong>两个维度进行优先级评估，本提案聚焦修复成本可控、影响范围广的 <strong>4 个问题</strong>重点展开。深色模式、原生 Mac 端等高呼声需求因开发成本大、周期长，建议列入下一阶段 Roadmap，不在本次提案范围内。</p>
+      </div>
+
+      <!-- 四象限优先级图 -->
+      <div class="quadrant-wrap">
+        <p class="quadrant-title">影响范围 × 修复成本 四象限</p>
+        <div class="quadrant-outer">
+          <div class="quadrant-y-axis">
+            <span>高</span>
+            <span class="qy-label">影响用户范围</span>
+            <span>低</span>
+          </div>
+          <div class="quadrant-grid-area">
+            <!-- 左上：优先做 -->
+            <div class="quadrant-cell qc-priority">
+              <h4>优先做</h4>
+              <p class="qc-sub">影响大 · 成本低</p>
+              <ul>
+                <li>语音无取消按钮</li>
+                
+                <li>标签无法筛选</li>
+                <li>分享图片表格截断</li>
+              </ul>
+            </div>
+            <!-- 右上：重要·排期 -->
+            <div class="quadrant-cell qc-schedule">
+              <h4>重要 · 排期</h4>
+              <p class="qc-sub">影响大 · 成本高</p>
+              <ul>
+                <li>深色模式</li>
+                <li>原生 Mac / PC 端</li>
+                <li>笔记合并功能</li>
+              </ul>
+            </div>
+            <!-- 左下：有空做 -->
+            <div class="quadrant-cell qc-optional">
+              <h4>有空做</h4>
+              <p class="qc-sub">影响小 · 成本低</p>
+              <ul>
+                <li>链接无滚动条</li>
+                <li>批量删除 / 筛选</li>
+              </ul>
+            </div>
+            <!-- 右下：暂缓 -->
+            <div class="quadrant-cell qc-defer">
+              <h4>暂缓</h4>
+              <p class="qc-sub">影响小 · 成本高</p>
+              <ul>
+                <li>Apple Watch 支持</li>
+                <li>富文本公式 / 思维导图</li>
+              </ul>
+            </div>
+          </div>
+          <div style="grid-row:2;grid-column:1;"></div>
+          <div class="quadrant-x-axis">
+            <span>低成本</span>
+            <span class="qx-center">修复成本 →</span>
+            <span>高成本</span>
+          </div>
+        </div>
+      </div>
 
       <div class="problem-list">
 
@@ -446,11 +794,15 @@
             <span class="problem-num">1</span>
             <h3>语音录制暂停后无「取消」按钮</h3>
           </div>
+          <div class="problem-source">
+            <i data-lucide="map-pin" class="ic-sm" style="stroke:var(--sage-dark)"></i>
+            <strong>来源：</strong>本人亲测 · 所有非「语音速记」类录音均可复现
+          </div>
           <div class="problem-body">
             <div class="problem-side">
               <p class="side-label label-before">现状 · 问题</p>
               <img src="assets/get-voice-no-cancel.png" alt="语音录制暂停截图" class="problem-img" />
-              <p class="problem-desc">录音进入「已暂停」状态后，底部仅有「播放▶」和绿色「完成」按钮。<strong>没有「取消」或「放弃」入口</strong>，用户若想放弃当前录音，无法操作，只能强制完成或退出页面，存在误操作风险。</p>
+              <p class="problem-desc">录音进入「已暂停」状态后，底部仅有「播放▶」和绿色「完成」按钮，<strong>没有「取消」或「放弃」入口</strong>。用户若想放弃当前录音，只能强制完成或直接退出页面，存在误操作风险。值得注意的是，「语音速记」功能已有取消按钮，说明产品团队具备该交互意识，但未在所有录音类型中保持一致。</p>
               <div class="impact-row">
                 <span class="impact-tag impact-ux">交互缺陷</span>
                 <span class="impact-tag impact-trust">误操作风险</span>
@@ -465,9 +817,18 @@
                   <li>参考语音速记的交互逻辑，对所有录音类型保持一致</li>
                 </ul>
               </div>
-              <div class="impact-row">
+              <!-- <div class="impact-row">
                 <span class="impact-tag impact-ux">降低误操作率</span>
                 <span class="impact-tag impact-retain">提升操作信任感</span>
+              </div> -->
+              <div class="problem-decision">
+                <p class="decision-label"><i data-lucide="lightbulb" class="ic-sm" style="stroke:var(--sage-dark)"></i> 决策说明</p>
+                <p>此改动不涉及录音核心逻辑，仅补全交互闭环，属于低风险修复。唯一需注意的是二次确认弹窗的文案设计，需足够清晰以防用户误触「取消」丢失有效录音内容。参考系统级录音 App 的交互规范即可落地。</p>
+                <div class="impact-row">
+                  <span class="impact-tag impact-ux">交互缺陷</span>
+                  <span class="impact-tag impact-trust">误操作风险</span>
+                  <span class="impact-tag impact-fix">快速修复</span>
+                </div>
               </div>
             </div>
           </div>
@@ -477,7 +838,11 @@
         <div class="problem-card">
           <div class="problem-header">
             <span class="problem-num">2</span>
-            <h3>分享生成图片：表格内容被截断</h3>
+            <h3>分享生成图片时表格内容被截断</h3>
+          </div>
+          <div class="problem-source">
+            <i data-lucide="map-pin" class="ic-sm" style="stroke:var(--sage-dark)"></i>
+            <strong>来源：</strong>本人亲测 · 笔记含表格时生成分享图片必现
           </div>
           <div class="problem-body">
             <div class="problem-side">
@@ -494,13 +859,21 @@
               <div class="solution-box">
                 <ul>
                   <li>生成图片时，表格按<strong>内容自适应列宽</strong>，或在超出时自动换行</li>
-                  <li>若表格过宽，生成图片时自动切换为<strong>横版/长图</strong>布局，保证完整显示</li>
+                  <li>若表格过宽，生成图片时自动切换为<strong>横版 / 长图</strong>布局，保证完整显示</li>
                   <li>可提供<strong>「表格转列表」</strong>选项：将表格内容转为更适合移动端图片的列表格式</li>
                 </ul>
               </div>
-              <div class="impact-row">
+              <!-- <div class="impact-row">
                 <span class="impact-tag impact-ux">提升内容完整性</span>
                 <span class="impact-tag impact-retain">增强分享传播力</span>
+              </div> -->
+              <div class="problem-decision">
+                <p class="decision-label"><i data-lucide="lightbulb" class="ic-sm" style="stroke:var(--sage-dark)"></i> 决策说明</p>
+                <p>三种方案优先级依次为：<strong>自适应列宽</strong>（改动最小，优先实施）→ <strong>横版长图</strong>（适合列数多的表格，作为降级方案）→ <strong>表格转列表</strong>（作为用户可选项迭代上线，避免一次改动过大）。分步落地可降低发版风险，同时验证用户对不同方案的接受度。</p>
+                <div class="impact-row">
+                  <span class="impact-tag impact-ux">渲染缺陷</span>
+                  <span class="impact-tag impact-trust">内容完整性受损</span>
+                </div>
               </div>
             </div>
           </div>
@@ -512,12 +885,16 @@
             <span class="problem-num">3</span>
             <h3>标签可创建但无法筛选，免费用户分类能力缺失</h3>
           </div>
+          <div class="problem-source">
+            <i data-lucide="map-pin" class="ic-sm" style="stroke:var(--sage-dark)"></i>
+            <strong>来源：</strong>本人亲测 + 小红书用户反馈多条印证 · 所有创建过标签的免费用户均受影响
+          </div>
           <div class="problem-body">
             <div class="problem-side">
               <p class="side-label label-before">现状 · 问题</p>
               <img src="assets/get-tag-nofiler.png" alt="标签管理界面" class="problem-img" />
               <p class="problem-desc">用户可以给笔记添加标签（如「AI链接笔记」「Google Colab」），但<strong>笔记列表不支持按标签筛选</strong>。标签仅作为装饰性元数据存在，无法发挥分类与检索价值。</p>
-              <p class="problem-desc">同时，免费用户知识库容量有限，<strong>缺乏基础分类管理工具</strong>，导致笔记越积越乱，用户自然放弃将 Get 笔记作为知识管理终点，转而使用 Notion 等工具。</p>
+              <p class="problem-desc">同时，免费用户知识库容量有限，<strong>缺乏基础分类管理工具</strong>，导致笔记越积越乱，用户自然放弃将 Get 笔记作为知识管理终点，转而使用 Notion 等工具。<strong>小红书上多条用户笔记印证了这一路径，「用 Get 总结、用 Notion 整理」已成为部分用户的固定工作流</strong>，说明该问题正在系统性地阻断付费转化路径。</p>
               <div class="impact-row">
                 <span class="impact-tag impact-ux">功能完整性缺失</span>
                 <span class="impact-tag impact-trust">用户流失风险</span>
@@ -532,9 +909,20 @@
                   <li><strong>付费差异化转移到知识库创新</strong>（见下节），而非依靠限制基础分类来逼付费</li>
                 </ul>
               </div>
-              <div class="impact-row">
+              <!-- <div class="impact-row">
                 <span class="impact-tag impact-retain">提升免费用户留存</span>
                 <span class="impact-tag impact-ux">激活标签价值</span>
+              </div> -->
+              <div class="problem-decision">
+                <p class="decision-label"><i data-lucide="lightbulb" class="ic-sm" style="stroke:var(--sage-dark)"></i> 决策说明 · 核心 Trade-off</p>
+                <p><strong>常见顾虑：开放免费用户分类能力，会不会削弱付费吸引力？</strong></p>
+                <p>这个顾虑逻辑上存在问题。用户不会因为「标签被限制」而付费——他们只会因为笔记太乱而<strong>放弃深度使用</strong>，连触达付费门槛的机会都没有。开放标签筛选，本质是扩大「有付费潜力」的用户基数，而非让付费失去意义。</p>
+                <p>付费价值的差异化应转移到真正的 AI 智能功能，而非依赖限制基础分类体验来制造压力。具体方向见第 03 节付费策略重构。</p>
+                <div class="impact-row">
+                  <span class="impact-tag impact-ux">功能完整性缺失</span>
+                  <span class="impact-tag impact-retain">免费用户留存</span>
+                  <span class="impact-tag impact-convert">付费转化关键路径</span>
+                </div>
               </div>
             </div>
           </div>
@@ -555,16 +943,16 @@
         <span class="s-label">现状问题</span>
         <h3>付费差异化主要靠「容量限制」</h3>
         <p>目前会员核心差异是知识库容量更大、录音时长更长。这是一种<strong>以限制免费用户体验</strong>换取付费转化的策略。</p>
-        <p>对于像我这类中度用户，限制分类工具的体验不会带来付费意愿，反而会让用户转向竞品或把 Get 笔记降级为中转工具。</p>
+        <p>付费转化的前提是用户认为产品值得深度依赖。当免费用户因为笔记太乱而放弃深度使用，他们不会升级付费——<strong>他们会离开</strong>。Flomo 的实践印证了这一逻辑：开放无限标签给免费用户，反而提升了整体留存与付费转化率，因为用户真正把它当成了知识管理的家。</p>
       </div>
       <div class="strategy-card" style="background: var(--sage-pale); border-color: var(--sage-light);">
         <span class="s-label">改进建议</span>
         <h3>以「智能价值」驱动付费</h3>
         <p>开放免费用户的基础分类能力（标签筛选 + 文件夹），同时将付费价值升级到真正的 AI 智能功能：</p>
         <ul>
-          <li><strong>跨笔记 AI 对话</strong>：对整个知识库提问检索</li>
-          <li><strong>AI 知识图谱</strong>：自动生成笔记关联可视化</li>
-          <li><strong>智能复习</strong>：遗忘曲线 + 自动生成测验题</li>
+          <!-- <li><strong>跨笔记 AI 对话</strong>：对整个知识库提问检索——当笔记积累到一定量级，用户会强烈需要「问自己的笔记」而非重新搜索，Notion AI 已验证用户愿意为此单独付费</li> -->
+          <li><strong>AI 知识图谱</strong>：自动生成笔记关联可视化——帮助用户发现自己都没意识到的知识连接，让用户有强烈的「Aha」时刻体验</li>
+          <li><strong>智能复习</strong>：遗忘曲线 + 自动生成测验题——把被动收藏变成主动学习，对备考用户、技能学习用户是强付费动机</li>
         </ul>
       </div>
     </div>
@@ -609,6 +997,13 @@
         <p>知识广场内容丰富 → 吸引更多用户使用 → 知识库用量增加 → 自然触达免费限额 → 转化付费会员</p>
       </div>
     </div>
+
+    <div class="risk-box">
+      <p class="risk-label"><i data-lucide="alert-triangle" class="ic-sm" style="stroke:#b06a10"></i> 主要风险与冷启动应对</p>
+      <p>知识广场面临典型的冷启动问题：没有优质内容，买家不来；没有买家，创作者不上架。</p>
+      <p><strong>建议分两步走：</strong>第一步，邀请已有高质量知识库的种子用户内测，平台给予免费会员或流量扶持作为激励，先积累 50–100 个高质量知识库；第二步，开放公测，以「知识广场」作为独立的内容发现入口，形成新的拉新渠道。</p>
+      <p><strong>参照案例：</strong>Notion 模板市场采用类似逻辑，从官方模板起步，逐步开放社区创作，目前已成为重要的用户增长来源，验证了「内容市场化」路径的可行性。</p>
+    </div>
   </section>
 
   <!-- 04 预期效果 -->
@@ -616,24 +1011,128 @@
     <div class="rd-inner">
       <h2>04 / 预期效果与验证指标</h2>
       <div class="rd-divider"></div>
-      <p class="section-label">以下为改进方案的预期目标，上线后需通过数据验证假设。</p>
+      <p class="section-label">以下为每项改进方案对应的核心指标定义与验证思路。具体目标值需结合产品现有数据基线制定，此处给出指标框架与验证方向。</p>
 
-      <div class="outcome-grid">
-        <div class="outcome-card">
-          <p class="oc-num">↓</p>
-          <p class="oc-label">语音录制误操作率<br><strong>取消按钮上线后</strong></p>
+      <div class="metric-list">
+
+        <!-- 指标卡一 -->
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <span class="mc-num">1</span>
+            <h3>语音录制取消按钮</h3>
+          </div>
+          <div class="metric-rows">
+            <div class="metric-row">
+              <span class="metric-lbl">核心指标</span>
+              <span class="metric-val">录音强制退出率</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">指标定义</span>
+              <span class="metric-val">进入录音页后未完成、直接退出页面的会话占比</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">测量方式</span>
+              <span class="metric-val">埋点：录音页 PV vs 录音完成事件，差值即为异常退出</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">预期变化</span>
+              <span class="metric-val">取消按钮上线后强制退出率下降；取消按钮点击后「确认放弃率」作为二级指标，验证弹窗文案是否足够清晰</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">验证方法</span>
+              <span class="metric-val">上线前后对比（Pre / Post），观察周期 2—4 周</span>
+            </div>
+          </div>
         </div>
-        <div class="outcome-card">
-          <p class="oc-num">↑</p>
-          <p class="oc-label">免费用户 7 日留存<br><strong>标签筛选开放后</strong></p>
+
+        <!-- 指标卡二 -->
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <span class="mc-num">2</span>
+            <h3>分享图片表格截断修复</h3>
+          </div>
+          <div class="metric-rows">
+            <div class="metric-row">
+              <span class="metric-lbl">核心指标</span>
+              <span class="metric-val">含表格笔记的分享完成率</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">指标定义</span>
+              <span class="metric-val">含表格笔记中，用户点击「生成图片」后成功分享出去的比例</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">测量方式</span>
+              <span class="metric-val">埋点：生成图片点击事件 vs 实际分享成功事件，漏斗对比</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">预期变化</span>
+              <span class="metric-val">修复后含表格笔记分享完成率提升；可观察「分享后再次打开笔记」行为是否减少，说明用户不再因截断问题返回重新操作</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">验证方法</span>
+              <span class="metric-val">直接修复上线，观察上线前后 2 周数据变化（Pre / Post）。Bug 修复类改动无需 A/B test，避免让一半用户持续承受已知缺陷</span>
+            </div>
+          </div>
         </div>
-        <div class="outcome-card">
-          <p class="oc-num">↑</p>
-          <p class="oc-label">知识库使用深度<br><strong>付费转化自然触发率</strong></p>
+
+        <!-- 指标卡三 -->
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <span class="mc-num">3</span>
+            <h3>标签筛选开放 + 付费策略调整</h3>
+          </div>
+          <p class="metric-layer-label">第一层 · 免费用户留存与使用深度</p>
+          <div class="metric-rows">
+            <div class="metric-row">
+              <span class="metric-lbl">核心指标</span>
+              <span class="metric-val">免费用户 D7 留存率、人均笔记创建数</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">指标定义</span>
+              <span class="metric-val">D7 留存 = 注册后第 7 天仍有活跃行为的用户占比；人均笔记创建数反映使用深度</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">测量方式</span>
+              <span class="metric-val">按注册时间分组，对比标签筛选上线前后的 D7 留存曲线</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">预期变化</span>
+              <span class="metric-val">免费用户 D7 留存提升；使用标签筛选功能的用户，人均笔记创建数高于未使用者</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">验证方法</span>
+              <span class="metric-val">A/B test：实验组开放标签筛选，对照组保持现状，观察 4 周</span>
+            </div>
+          </div>
+          <hr class="metric-layer-divider" />
+          <p class="metric-layer-label">第二层 · 付费转化前置信号</p>
+          <div class="metric-rows">
+            <div class="metric-row">
+              <span class="metric-lbl">核心指标</span>
+              <span class="metric-val">免费用户知识库触达限额比例、免费 → 付费转化率</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">指标定义</span>
+              <span class="metric-val">「触达限额」= 用户知识库使用量超过免费上限的 80%，视为付费转化前置信号</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">逻辑</span>
+              <span class="metric-val">用户在 Get 笔记深度沉淀知识 → 自然触达免费限额 → 产生升级付费动机，这是健康的转化路径</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">预期变化</span>
+              <span class="metric-val">标签筛选开放后，触达限额的用户比例上升，说明用户开始真正把 Get 笔记当知识库用</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-lbl">验证方法</span>
+              <span class="metric-val">对比标签筛选上线前后触达限额用户占比变化；同步观察付费转化率趋势</span>
+            </div>
+          </div>
         </div>
+
       </div>
 
-      <p class="outcome-note">注：以上指标为方向性假设，具体目标值需结合产品现有数据基线制定。</p>
+      <p class="outcome-note">注：以上指标框架基于产品改动的预期逻辑推导，A/B test 方案需结合实际日活规模评估样本量是否足够。若日活较低，Pre / Post 对比是更可行的替代验证方式。</p>
     </div>
   </section>
 

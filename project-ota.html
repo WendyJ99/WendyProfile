@@ -319,6 +319,38 @@
     .overall-insight h3 { font-size: 15px; font-weight: 600; color: var(--sage-dark); margin-bottom: 10px; }
     .overall-insight p { font-size: 15px; line-height: 1.75; color: var(--dark); margin: 0; }
 
+    /* Hero why-box */
+    .hero-why-box {
+      background: rgba(255,255,255,0.72); backdrop-filter: blur(4px);
+      border: 1px solid rgba(164,181,123,0.35); border-radius: 12px;
+      padding: 18px 22px; margin: 0 0 28px; max-width: 640px;
+    }
+    .hero-why-box .why-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--sage-dark); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .hero-why-box p { font-size: 14px; line-height: 1.8; color: var(--dark); margin: 0; }
+    .hero-why-box strong { color: var(--black); }
+
+    /* Product insight tips */
+    .insight-tips {
+      background: #fff; border: 1px solid var(--light-gray);
+      border-radius: 14px; padding: 24px 28px; margin-top: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .insight-tips h3 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 18px; }
+    .insight-tip { display: flex; gap: 16px; margin-bottom: 18px; align-items: flex-start; }
+    .insight-tip:last-child { margin-bottom: 0; }
+    .tip-num {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--sage-pale); border: 1.5px solid var(--sage-light);
+      color: var(--sage-dark); font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .insight-tip-body h4 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+    .insight-tip-body p { font-size: 13.5px; line-height: 1.75; color: var(--dark); margin: 0; }
+
     /* ============================
        PRINT / PDF
     ============================ */
@@ -353,6 +385,12 @@
     <p class="eyebrow">竞品分析 · 在线旅行平台</p>
     <h1>去哪儿 vs 携程</h1>
     <p class="subtitle">两款 OTA 头部产品的定位差异、功能结构、用户体验与商业模式深度对比分析。</p>
+
+    <div class="hero-why-box">
+      <p class="why-label"><i data-lucide="help-circle" class="ic-sm" style="stroke:var(--sage-dark)"></i> 为什么选这两个产品分析？</p>
+      <p>去哪儿与携程同属携程集团，表面是竞品，实质是双品牌差异化布局。选择这对产品，是因为它们提供了一个罕见的对照实验：<strong>相同的业务、相同的资源池、截然不同的产品策略</strong>——通过对比，可以清晰看到「定位差异如何渗透到功能设计、交互逻辑和商业模式的每一个细节」。</p>
+    </div>
+
     <div class="ota-meta">
       <span><span class="lbl">分析时间</span> 2025</span>
       <span><span class="lbl">分析方法</span> 一手体验 + 公开报告 + 用户数据</span>
@@ -695,6 +733,31 @@
       <div class="overall-insight">
         <h3>核心洞察</h3>
         <p>去哪儿和携程表面是竞品，本质上是同一集团的差异化双品牌策略——低价心智 vs 品质心智，共同覆盖不同消费层。理解这一背景，才能真正读懂两者在产品、功能、价格上诸多「不一致」背后的战略逻辑。</p>
+      </div>
+
+      <div class="insight-tips">
+        <h3>对产品设计的三点启发</h3>
+        <div class="insight-tip">
+          <span class="tip-num">一</span>
+          <div class="insight-tip-body">
+            <h4>定位必须贯穿每一个细节，不能只停留在 Slogan</h4>
+            <p>去哪儿「低价」心智渗透到排序策略（评论数优先）、筛选交互（实时显示结果数）、营销入口（神券 / 拼团）的每一处。定位不是一句话，是每个产品决策的底层逻辑。</p>
+          </div>
+        </div>
+        <div class="insight-tip">
+          <span class="tip-num">二</span>
+          <div class="insight-tip-body">
+            <h4>功能克制是一种选择，不是能力不足</h4>
+            <p>去哪儿功能少于携程，但不是因为做不到——是因为聚焦。克制的背后是明确的用户模型：价格敏感用户不需要私家团，他们需要的是最快找到最低价。</p>
+          </div>
+        </div>
+        <div class="insight-tip">
+          <span class="tip-num">三</span>
+          <div class="insight-tip-body">
+            <h4>大产品的体验缺陷往往不是「没发现」，而是「没优先级」</h4>
+            <p>携程分享功能在列表页和详情页表现不一致，这种问题不难发现，但在一个几百人的产品团队里，修复它的优先级永远排在新功能后面。这提醒我：做产品不只是发现问题，还要学会判断什么时候这个问题值得修——以及怎么说服团队去修它。</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -83,6 +83,35 @@
     .section-label { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
 
     /* ============================
+       01 节：用研方法 + 聚焦说明
+    ============================ */
+    .cg-sub-h {
+      font-size: 16px; font-weight: 600; color: var(--black);
+      margin: 28px 0 12px;
+    }
+    .cg-method-box {
+      background: #f9f6f0; border-left: 4px solid var(--sage-dark);
+      border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 8px;
+    }
+    .cg-method-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--sage-dark); margin-bottom: 8px;
+    }
+    .cg-focus-reasons { display: flex; flex-direction: column; gap: 12px; margin: 12px 0 0; }
+    .cg-focus-reason { display: flex; gap: 14px; align-items: flex-start; }
+    .cg-reason-num {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--sage-pale); border: 1.5px solid var(--sage-light);
+      color: var(--sage-dark); font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .cg-focus-reason p { font-size: 14px; line-height: 1.7; margin: 0; color: var(--dark); }
+    .ct-stat .ct-num { font-size: 40px; line-height: 1.1; }
+    .ct-stat .ct-num sup { font-size: 18px; font-family: var(--font-sans, Inter); font-weight: 600; vertical-align: super; }
+    .ct-stat .ct-desc { font-size: 12px; color: var(--gray); margin-top: 4px; line-height: 1.4; }
+
+    /* ============================
        INSIGHT DIAGRAM
     ============================ */
     .insight-diagram {
@@ -329,6 +358,69 @@
     }
 
     /* ============================
+       产品决策卡片
+    ============================ */
+    .decision-card {
+      background: #fff; border-radius: 14px; padding: 24px 28px;
+      border: 1.5px solid #e8d8a0;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .decision-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: #8a6200;
+      background: #fff3cc; border-radius: 20px;
+      padding: 4px 12px; margin-bottom: 14px;
+    }
+    .decision-card h3 {
+      font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 14px;
+    }
+    .decision-card p { font-size: 14px; line-height: 1.8; color: var(--dark); margin-bottom: 10px; }
+    .decision-card p:last-child { margin-bottom: 0; }
+    .decision-card .decision-essence {
+      margin-top: 14px; padding: 12px 16px;
+      background: #fffbf0; border-left: 3px solid #d4a840;
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px; color: var(--dark); line-height: 1.7;
+    }
+
+    /* ============================
+       北极星指标
+    ============================ */
+    .north-star-wrap {
+      background: var(--sage-pale); border-radius: 14px; padding: 24px 28px;
+      border: 1px solid var(--sage-light); margin: 20px 0 0;
+    }
+    .north-star-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--sage-dark); margin-bottom: 10px;
+    }
+    .north-star-metric {
+      font-family: var(--font-serif); font-size: 20px; font-weight: 700;
+      color: var(--black); margin-bottom: 8px;
+    }
+    .north-star-def {
+      font-size: 14px; line-height: 1.75; color: var(--dark); margin-bottom: 16px;
+    }
+    .sub-metric-list {
+      display: flex; flex-direction: column; gap: 6px;
+      padding: 14px 16px; background: #fff;
+      border-radius: 10px; margin-bottom: 14px;
+    }
+    .sub-metric-item {
+      display: flex; align-items: baseline; gap: 8px;
+      font-size: 13.5px; color: var(--dark); line-height: 1.6;
+    }
+    .sub-metric-item::before {
+      content: '·'; color: var(--sage-dark); font-weight: 700; flex-shrink: 0;
+    }
+    .north-star-note {
+      font-size: 13px; color: var(--gray); line-height: 1.7;
+      padding-top: 12px; border-top: 1px solid var(--sage-light);
+    }
+
+    /* ============================
        PRINT
     ============================ */
     @media print {
@@ -373,6 +465,47 @@
     <h2>01 / 项目背景与目标</h2>
     <div class="cg-divider"></div>
     <p>同一款 App，家长与孩子以不同角色使用：家长创建任务与奖励、验收完成情况；孩子接收任务、打卡、赚取金币并兑换奖励。目标是用「约定写清、过程可追溯、兑现可落地」的机制，减少「你耍赖 / 你不守约」的争执，让激励闭环真正跑起来。</p>
+
+    <!-- 用研数据可视化 -->
+    <div class="coin-tiers" style="max-width:440px;margin-top:28px;">
+      <div class="coin-tier ct-stat">
+        <p class="ct-label">问卷调研</p>
+        <p class="ct-num">100<sup>+</sup></p>
+        <p class="ct-unit">有效问卷</p>
+        <p class="ct-desc">覆盖目标家庭用户群体</p>
+      </div>
+      <div class="coin-tier ct-stat">
+        <p class="ct-label">家庭深访</p>
+        <p class="ct-num">20<sup>组</sup></p>
+        <p class="ct-unit">受访家庭</p>
+        <p class="ct-desc">家长与 6–12 岁孩子同场参与</p>
+      </div>
+    </div>
+
+    <!-- 用研方法 -->
+    <h3 class="cg-sub-h">用研方法</h3>
+    <div class="cg-method-box">
+      <p class="cg-method-label"><i data-lucide="database" class="ic-sm ic-sage"></i> 数据来源</p>
+      <p style="margin:0;font-size:14px;line-height:1.75;color:var(--dark);">通过问卷调研收集 100+ 份有效反馈，筛选 20 组家庭进行深度访谈，受访对象覆盖家长与 6–12 岁孩子，重点围绕亲子任务管理的现有方式、冲突场景与奖励机制展开。</p>
+    </div>
+
+    <!-- 目标用户聚焦 -->
+    <h3 class="cg-sub-h">目标用户聚焦：为什么是 6–9 岁，而不是 K12</h3>
+    <p>初始设想覆盖 K12 全年龄段，访谈后发现年龄跨度过大导致需求高度分裂：6 岁孩子需要强引导的卡通化设计，9 岁以上孩子开始叛逆，对金币激励接受度明显下降。最终聚焦 6–9 岁，原因如下：</p>
+    <div class="cg-focus-reasons">
+      <div class="cg-focus-reason">
+        <span class="cg-reason-num">01</span>
+        <p>习惯养成黄金期，家长焦虑感和付费意愿最强</p>
+      </div>
+      <div class="cg-focus-reason">
+        <span class="cg-reason-num">02</span>
+        <p>这个年龄段对游戏化激励接受度最高，年龄再大就会觉得幼稚</p>
+      </div>
+      <div class="cg-focus-reason">
+        <span class="cg-reason-num">03</span>
+        <p>聚焦后界面、任务难度、家长功能可以精准对齐，不需要多方妥协</p>
+      </div>
+    </div>
   </section>
 
   <!-- 02 用户洞察 -->
@@ -382,6 +515,40 @@
       <div class="cg-divider"></div>
       <p class="section-label">访谈中发现，亲子冲突常集中在「奖励」上：说不清、记不住、标准不统一，最后演变成互相指责。</p>
 
+      <!-- 问卷数据 -->
+      <h3 class="cg-sub-h" style="margin-top:0;">问卷核心发现（100+ 份有效问卷）</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 16px;">
+        <div class="coin-tier">
+          <p class="ct-label">家长</p>
+          <p class="ct-num" style="font-size:38px;">80<span style="font-size:20px;font-weight:600;">%</span></p>
+          <p class="ct-unit">依赖口头约定</p>
+          <p style="font-size:12px;color:var(--gray);margin:4px 0 0;line-height:1.4;">管理任务与奖励的主要方式</p>
+        </div>
+        <div class="coin-tier">
+          <p class="ct-label">家长</p>
+          <p class="ct-num" style="font-size:38px;">63<span style="font-size:20px;font-weight:600;">%</span></p>
+          <p class="ct-unit">遭遇执行问题</p>
+          <p style="font-size:12px;color:var(--gray);margin:4px 0 0;line-height:1.4;">记不住约定 / 标准不统一 / 不守承诺</p>
+        </div>
+        <div class="coin-tier">
+          <p class="ct-label">家长</p>
+          <p class="ct-num" style="font-size:38px;">78<span style="font-size:20px;font-weight:600;">%</span></p>
+          <p class="ct-unit">曾因奖励发生争执</p>
+          <p style="font-size:12px;color:var(--gray);margin:4px 0 0;line-height:1.4;">奖励兑现问题是冲突主因</p>
+        </div>
+        <div class="coin-tier">
+          <p class="ct-label">孩子</p>
+          <p class="ct-num" style="font-size:38px;">55<span style="font-size:20px;font-weight:600;">%</span></p>
+          <p class="ct-unit">始终得不到承诺奖励</p>
+          <p style="font-size:12px;color:var(--gray);margin:4px 0 0;line-height:1.4;">想要但一直未能兑现</p>
+        </div>
+      </div>
+
+      <div class="insight-quote" style="font-style:normal;font-size:14px;">
+        数据指向同一个根源：<strong>口头约定缺乏约束力</strong>，导致执行过程中标准模糊、记录缺失、兑现失信，最终演变为亲子冲突。
+      </div>
+
+      <!-- 冲突示意图 -->
       <div class="insight-diagram">
         <div class="side">
           <strong>家长侧</strong>
@@ -398,6 +565,8 @@
       <p>因此产品需要解决三件事：<strong>约定写清</strong>、<strong>过程可记录</strong>、<strong>兑现可追溯</strong>。</p>
     </div>
   </section>
+
+  
 
   <!-- 03 核心机制与流程 -->
   <section class="cg-section">
@@ -481,12 +650,56 @@
         <p>兑换商城由亲子提前共同列好（如看电影、买玩具）；兑换后留记录，避免「答应过没兑现」。</p>
       </div>
     </div>
+
+    <!-- 金币档位设计 -->
+    <h3 class="cg-sub-h">金币档位设计</h3>
+    <p style="font-size:14px;color:var(--dark);line-height:1.75;margin-bottom:12px;">家长按任务难度自定义金币，产品提供推荐档位，既给引导又保留灵活性，防止随意填写导致激励失衡。</p>
+    <div class="coin-tiers">
+      <div class="coin-tier ct-easy">
+        <p class="ct-label">简单</p>
+        <p class="ct-num">10</p>
+        <p class="ct-unit">金币</p>
+        <div class="ct-bar"></div>
+      </div>
+      <div class="coin-tier ct-mid">
+        <p class="ct-label">中等</p>
+        <p class="ct-num">20</p>
+        <p class="ct-unit">金币</p>
+        <div class="ct-bar"></div>
+      </div>
+      <div class="coin-tier ct-hard">
+        <p class="ct-label">困难</p>
+        <p class="ct-num">50</p>
+        <p class="ct-unit">金币</p>
+        <div class="ct-bar"></div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:0;">可微调范围 1–50，三档推荐为默认套用选项，一键选择后仍可手动修改。</p>
+
+    <!-- 关键产品决策 -->
+    <div class="decision-card" style="margin-top:32px;">
+      <p class="decision-badge"><i data-lucide="git-branch" class="ic-sm" style="stroke:#8a6200"></i> 关键产品决策</p>
+      <h3>放弃孩子端排行榜，转向家长社区</h3>
+      <div class="mechanism-grid" style="margin:0 0 16px;">
+        <div class="mechanism-card" style="border-color:rgba(192,57,43,0.18);">
+          <h3 style="color:#c0392b;"><i data-lucide="x-circle" class="ic-md" style="stroke:#c0392b;margin-right:6px;"></i>孩子端排行榜——为什么放弃</h3>
+          <p>排行榜容易引发攀比和焦虑，与产品「正向、温和的习惯养成」价值观直接冲突。一个让孩子产生压力的功能，不应该出现在这个产品里。</p>
+        </div>
+        <div class="mechanism-card" style="border-color:rgba(107,138,80,0.28);background:var(--sage-pale);">
+          <h3><i data-lucide="check-circle-2" class="ic-md ic-sage" style="margin-right:6px;"></i>家长社区——为什么转向</h3>
+          <p>社交需求真实存在，转移到家长端更合适：家长互相交流育儿心得，既提升留存和粘性，也是后续商业化的核心阵地——付费会员、定制任务包、育儿课程等变现路径更自然。</p>
+        </div>
+      </div>
+      <div class="decision-essence">
+        <strong>决策本质：</strong>社交需求真实存在，但服务对象要对，场景要对。
+      </div>
+    </div>
   </section>
 
   <!-- 04 主路径 -->
   <section class="cg-section bg-off">
     <div class="cg-inner">
-      <h2>04 / 核心流程：孩子打卡 → 家长验收 → 金币入账</h2>
+      <h2>04 / 核心流程：家长设置任务 → 孩子接收任务 → 孩子打卡 → 家长验收 → 金币入账</h2>
       <div class="cg-divider"></div>
       <p class="section-label">作品集重点呈现的主路径闭环，展示激励机制如何端到端运转。</p>
 
@@ -511,41 +724,24 @@
       <div class="validation-box">
         <strong>验证计划</strong>：上线后以「待验收停留时长」中位数 &lt; 24 小时为主指标，辅以超时自动通过占比、驳回率等观察迭代。
       </div>
+
+      <div class="north-star-wrap">
+        <p class="north-star-label"><i data-lucide="star" class="ic-sm ic-sage"></i> 北极星指标</p>
+        <p class="north-star-metric">任务完成闭环率</p>
+        <p class="north-star-def">定义为「创建任务后最终完成验收并金币入账的比例」。这个指标同时反映孩子的执行意愿和家长的验收效率，是激励机制是否真正跑通的核心信号。</p>
+        <div class="sub-metric-list">
+          <span class="sub-metric-item"><strong>7 日任务创建留存率</strong>——家长是否持续使用</span>
+          <span class="sub-metric-item"><strong>金币兑换率</strong>——孩子是否真的在意奖励</span>
+        </div>
+        <p class="north-star-note">金币档位 10 / 20 / 50 为初始假设值，上线后需观察兑换商城消耗速度来校准——若孩子金币积累过快或过慢，说明档位需要调整。</p>
+      </div>
     </div>
   </section>
 
-  <!-- 05 金币档位 -->
-  <section class="cg-section">
-    <h2>05 / 金币档位设计</h2>
-    <div class="cg-divider"></div>
-    <p>家长按任务难度自定义金币，产品提供推荐档位，既给引导又保留灵活性，防止随意填写导致激励失衡。</p>
-    <div class="coin-tiers">
-      <div class="coin-tier ct-easy">
-        <p class="ct-label">简单</p>
-        <p class="ct-num">10</p>
-        <p class="ct-unit">金币</p>
-        <div class="ct-bar"></div>
-      </div>
-      <div class="coin-tier ct-mid">
-        <p class="ct-label">中等</p>
-        <p class="ct-num">20</p>
-        <p class="ct-unit">金币</p>
-        <div class="ct-bar"></div>
-      </div>
-      <div class="coin-tier ct-hard">
-        <p class="ct-label">困难</p>
-        <p class="ct-num">50</p>
-        <p class="ct-unit">金币</p>
-        <div class="ct-bar"></div>
-      </div>
-    </div>
-    <p style="font-size:13px;color:var(--gray);">可微调范围 1–50，三档推荐为默认套用选项，一键选择后仍可手动修改。</p>
-  </section>
-
-  <!-- 06 原型展示 -->
+  <!-- 05 原型展示 -->
   <section class="cg-section bg-off">
     <div class="cg-inner">
-      <h2>06 / 关键界面原型</h2>
+      <h2>05 / 关键界面原型</h2>
       <div class="cg-divider"></div>
       <p class="section-label">展示家长端任务管理（Mission Board）、奖励商城（Treasure）和验收（Inbox）三个核心界面，以及孩子端任务执行页面。</p>
 
@@ -560,9 +756,9 @@
     </div>
   </section>
 
-  <!-- 07 走查与测试 -->
+  <!-- 06 走查与测试 -->
   <section class="cg-section">
-    <h2>07 / 走查与可用性测试</h2>
+    <h2>06 / 走查与可用性测试</h2>
     <div class="cg-divider"></div>
     <p>先进行团队内部/同学走查，再找真实用户做可用性测试（有任务、有观察、有记录）。</p>
     <table class="find-fix-table">
@@ -589,27 +785,61 @@
     </table>
   </section>
 
-  <!-- 08 迭代方向 -->
+  <!-- 07 迭代方向 -->
   <section class="cg-section bg-off">
     <div class="cg-inner">
-      <h2>08 / 用户反馈与后续迭代方向</h2>
+      <h2>07 / 用户反馈与后续迭代方向</h2>
       <div class="cg-divider"></div>
+
+      <h3 class="cg-sub-h" style="margin-top:0;">第一阶段 · 功能完善</h3>
       <div class="next-cards">
         <div class="next-card">
           <i data-lucide="repeat-2" class="icon ic-lg ic-sage"></i>
           <div>
-            <h4>习惯 vs 任务</h4>
+            <h4>习惯 vs 任务分类管理</h4>
             <p>支持将行为分类为「习惯」（按周期执行，如每日刷牙）与「任务」（单次设置），满足不同激励场景。</p>
           </div>
         </div>
         <div class="next-card">
           <i data-lucide="scale" class="icon ic-lg ic-sage"></i>
           <div>
-            <h4>扣分项</h4>
+            <h4>扣分项机制</h4>
             <p>支持设定扣分规则（如骂人、撒谎扣分），与正向激励形成完整行为约束。</p>
           </div>
         </div>
+        <div class="next-card">
+          <i data-lucide="users" class="icon ic-lg ic-sage"></i>
+          <div>
+            <h4>多孩子管理优化</h4>
+            <p>支持家长在同一账号下管理多个孩子的任务与奖励，按孩子单独查看进度与金币记录。</p>
+          </div>
+        </div>
       </div>
+
+      <h3 class="cg-sub-h">第二阶段 · 商业化</h3>
+      <p style="font-size:14px;color:var(--dark);line-height:1.75;margin-bottom:16px;">上线家长社区，让家长交流育儿经验、分享任务模板。社区积累活跃用户后，自然承接付费转化：</p>
+      <div class="mechanism-grid">
+        <div class="mechanism-card">
+          <h3><i data-lucide="message-circle" class="ic-md ic-sage"></i> 家长社区</h3>
+          <p>育儿心得交流、任务模板共创，形成高信任、高活跃的用户社群，是商业化的核心流量池。</p>
+        </div>
+        <div class="mechanism-card">
+          <h3><i data-lucide="crown" class="ic-md ic-sage"></i> 付费会员</h3>
+          <p>高级数据报表（孩子习惯养成趋势）、任务模板库一键导入，面向深度使用的家长群体。</p>
+        </div>
+        <div class="mechanism-card">
+          <h3><i data-lucide="package" class="ic-md ic-sage"></i> 定制任务包</h3>
+          <p>按年龄段、场景定制的任务包（如暑期作息包、入学准备包），一次性购买直接导入。</p>
+        </div>
+        <div class="mechanism-card">
+          <h3><i data-lucide="book-open" class="ic-md ic-sage"></i> 育儿课程</h3>
+          <p>结合产品使用场景的正向激励方法论课程，将工具使用与亲子教育内容打通。</p>
+        </div>
+      </div>
+
+      <!-- <div class="validation-box" style="margin-top:20px;">
+        选择家长端而非孩子端作为社交场景，是因为家长有更强的信息交流需求和付费能力，且不会引入孩子间攀比的副作用——这也与我们放弃孩子端排行榜的决策逻辑一脉相承。
+      </div> -->
     </div>
   </section>
 
