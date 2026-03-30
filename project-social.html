@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生活和游戏中的社交设计分析 — Wendy 作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    [data-lucide] { display:inline-block; vertical-align:middle; flex-shrink:0; stroke-width:1.75; }
+    .ic-sm { width:13px; height:13px; }
+    .ic-md { width:20px; height:20px; }
+    .ic-lg { width:28px; height:28px; }
+    .ic-sage { stroke:var(--sage-dark); }
+
+    /* NAV — 与 project-redesign / project-ota 一致 */
+    .project-nav-simple { justify-content: space-between; padding: 0 56px; }
+    .project-nav-simple .project-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--sage-dark); font-weight: 500; text-decoration: none;
+      font-size: 14px; transition: color 0.2s;
+    }
+    .project-nav-simple .project-back:hover { color: var(--sage); }
+    .project-nav-simple .print-btn {
+      font-size: 13px; color: var(--gray); background: var(--off-white);
+      border: 1px solid var(--light-gray); border-radius: 6px;
+      padding: 8px 16px; cursor: pointer; transition: all 0.2s;
+      text-decoration: none;
+    }
+    .project-nav-simple .print-btn:hover { border-color: var(--sage); color: var(--sage-dark); }
+
+    /* HERO — 对齐 rd-hero / ota-hero */
+    .sd-hero {
+      padding: 120px 56px 64px;
+      background: linear-gradient(135deg, #f4f6f1 0%, #edf2e7 100%);
+      position: relative; overflow: hidden;
+    }
+    .sd-hero::before {
+      content: 'Social';
+      position: absolute; right: -30px; top: 10px;
+      font-family: var(--font-serif); font-size: 180px; font-weight: 900;
+      color: rgba(164,181,123,0.07); pointer-events: none; line-height: 1;
+    }
+    .sd-hero .eyebrow {
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 12px;
+    }
+    .sd-hero h1 {
+      font-family: var(--font-serif); font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: var(--black); margin-bottom: 8px;
+    }
+    .sd-hero .subtitle {
+      font-size: 17px; color: var(--dark); max-width: 620px; margin-bottom: 28px; line-height: 1.7;
+    }
+    .sd-meta {
+      display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 13px; color: var(--gray);
+    }
+    .sd-meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .sd-meta .lbl { color: var(--sage-dark); font-weight: 600; }
+
+    /* SECTION — 与 rd-section 节奏一致 */
+    .sd-section { max-width: 1100px; margin: 0 auto; padding: 56px 56px 64px; }
+    .sd-section.bg-off { background: var(--off-white); max-width: 100%; }
+    .sd-section.bg-off .sd-inner { max-width: 1100px; margin: 0 auto; }
+    .sd-section h2 {
+      font-family: var(--font-serif); font-size: 22px; font-weight: 700;
+      color: var(--black); margin-bottom: 6px;
+    }
+    .sd-divider {
+      width: 40px; height: 3px; background: var(--sage);
+      border-radius: 2px; margin: 10px 0 24px;
+    }
+    .sd-section p, .sd-section li { font-size: 15px; line-height: 1.75; color: var(--dark); margin-bottom: 10px; }
+    .sd-section ul { margin: 8px 0 16px 20px; }
+    .section-label { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
+
+    /* PART HEADER — sage 系卡片，与 rd-positioning 同调 */
+    .part-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 24px; border-radius: 12px; margin-bottom: 32px;
+      background: #fff;
+      border: 1px solid rgba(107,138,80,0.14);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .part-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      background: var(--sage-pale);
+      border: 1px solid var(--sage-light);
+    }
+    .part-header h2 { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--black); margin: 0 0 4px; }
+    .part-header p { font-size: 14px; color: var(--dark); margin: 0; line-height: 1.6; }
+
+    /* PERSONAL NOTE — rd-method-box / rd-personal-note */
+    .sd-personal-note {
+      background: #f9f6f0; border-left: 4px solid var(--sage-dark);
+      border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px;
+      font-size: 14px; line-height: 1.8; color: var(--dark);
+    }
+    .sd-personal-note.note-nested {
+      margin: 16px 0;
+      background: #f4f6f1;
+    }
+    .sd-personal-note strong { color: var(--black); }
+
+    /* HIGHLIGHT CARD — problem-card 系白底 */
+    .sd-highlight-list { display: flex; flex-direction: column; gap: 28px; margin: 28px 0; }
+    .sd-highlight-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border-left: 3px solid var(--sage);
+    }
+    .sd-card-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 24px; border-bottom: 1px solid var(--light-gray);
+    }
+    .sd-card-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--sage);
+      color: #fff; font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .sd-card-header h3 { font-size: 16px; font-weight: 600; color: var(--black); margin: 0; }
+    .sd-card-body { padding: 20px 24px; }
+    .sd-card-body p { font-size: 14px; line-height: 1.75; color: var(--dark); margin-bottom: 10px; }
+    .sd-card-body p:last-child { margin-bottom: 0; }
+
+    /* INSIGHT — user-insight */
+    .sd-insight {
+      background: var(--sage-pale); border-left: 4px solid var(--sage);
+      padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0;
+      font-size: 14px; color: var(--dark); line-height: 1.65;
+    }
+    .sd-insight strong { color: var(--black); }
+
+    /* STAT BADGES */
+    .sd-stat-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+    .sd-stat {
+      display: flex; flex-direction: column; align-items: center;
+      background: #fff; border: 1px solid var(--sage-light); border-radius: 12px;
+      padding: 14px 20px; min-width: 110px; text-align: center;
+    }
+    .sd-stat .stat-num {
+      font-family: var(--font-serif); font-size: 26px; font-weight: 700;
+      color: var(--sage-dark); line-height: 1;
+    }
+    .sd-stat .stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; line-height: 1.4; }
+
+    /* LOOP FLOW — 对齐 rd user-flow 色块 */
+    .loop-flow {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap; margin: 24px 0;
+      background: #fff; border-radius: 14px; padding: 28px 20px;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .loop-node {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; min-width: 100px; text-align: center;
+    }
+    .loop-icon {
+      width: 50px; height: 50px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .li-create { background: #fff3cc; }
+    .li-share  { background: #e8f4fd; }
+    .li-social { background: var(--sage-pale); }
+    .li-reward { background: #fff3cc; }
+    .loop-node p { font-size: 13px; font-weight: 500; color: var(--dark); margin: 0; line-height: 1.4; }
+    .loop-node small { font-size: 11px; color: var(--gray); }
+    .loop-arrow { color: var(--sage); font-size: 20px; padding: 0 6px; align-self: center; margin-bottom: 20px; }
+
+    /* COMPARE TABLE — rd-tier-table */
+    .sd-compare-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin: 0 0 20px;
+    }
+    .sd-compare-table th {
+      background: var(--sage-dark); color: #fff; font-weight: 600;
+      padding: 11px 16px; text-align: left; font-size: 13px;
+    }
+    .sd-compare-table td {
+      padding: 11px 16px; border-bottom: 1px solid var(--light-gray);
+      color: var(--dark); line-height: 1.5;
+    }
+    .sd-compare-table tr:last-child td { border-bottom: none; }
+    .sd-compare-table tr:nth-child(even) td { background: var(--sage-pale); }
+    .sd-compare-table .highlight-row td {
+      background: var(--sage-pale) !important;
+      color: var(--sage-dark) !important; font-weight: 600;
+    }
+
+    /* FEATURE HIGHLIGHTS */
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .feature-card {
+      background: #fff; border-radius: 12px; padding: 20px;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .feature-card .fc-icon {
+      display: flex; align-items: center; justify-content: flex-start;
+      margin-bottom: 10px; color: var(--sage-dark);
+    }
+    .feature-card .fc-icon [data-lucide] {
+      width: 24px; height: 24px; flex-shrink: 0;
+    }
+    .feature-card h4 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+    .feature-card p { font-size: 13px; line-height: 1.65; color: var(--dark); margin: 0; }
+
+    /* PROBLEM CARDS */
+    .problem-list { display: flex; flex-direction: column; gap: 24px; margin: 24px 0; }
+    .sd-problem-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .sd-problem-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 24px; border-bottom: 1px solid var(--light-gray);
+      background: #fafdf8;
+    }
+    .sd-problem-num {
+      width: 30px; height: 30px; border-radius: 50%; background: #e05050;
+      color: #fff; font-weight: 700; font-size: 13px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .sd-problem-header h3 { font-size: 15px; font-weight: 600; color: var(--black); margin: 0; }
+    .sd-problem-header .severity {
+      margin-left: auto; font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 600;
+    }
+    .sev-critical { background: #ffe0e0; color: #c02020; }
+    .sev-medium   { background: #fff3cc; color: #8a6200; }
+    .sev-low      { background: #e6e6e6; color: #555; }
+    .sd-problem-body { padding: 18px 24px; }
+    .sd-problem-body p { font-size: 14px; line-height: 1.75; color: var(--dark); margin-bottom: 8px; }
+    .sd-problem-body p:last-child { margin-bottom: 0; }
+    .sd-problem-scenario {
+      background: #f9f6f0; border-left: 4px solid #c4a060;
+      border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0;
+      font-size: 13.5px; color: var(--dark); line-height: 1.65; font-style: italic;
+    }
+
+    /* IMPROVE CARDS */
+    .improve-list { display: flex; flex-direction: column; gap: 24px; margin: 24px 0; }
+    .improve-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--light-gray);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+    .improve-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 24px; border-bottom: 1px solid var(--light-gray);
+      background: #fafdf8;
+    }
+    .improve-num {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--sage);
+      color: #fff; font-weight: 700; font-size: 13px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .improve-header h3 { font-size: 15px; font-weight: 600; color: var(--black); margin: 0; }
+    .improve-body { padding: 18px 24px; }
+    .improve-body p { font-size: 14px; line-height: 1.75; color: var(--dark); margin-bottom: 8px; }
+    .improve-body ul { margin: 8px 0 0 18px; }
+    .improve-body li { font-size: 14px; color: var(--dark); margin-bottom: 6px; line-height: 1.7; }
+
+    /* SUB HEADING */
+    .sd-sub-h {
+      font-size: 16px; font-weight: 600; color: var(--black);
+      margin: 28px 0 12px;
+    }
+    .sd-sub-h.mt-lg { margin-top: 40px; }
+    .sd-sub-h.sd-sub-h-first { margin-top: 0; }
+    .sd-insight.mt-block { margin-top: 32px; }
+
+    /* TAG ROW */
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .utag {
+      font-size: 12px; padding: 5px 12px; border-radius: 20px; font-weight: 500;
+      background: var(--sage-pale); color: var(--sage-dark);
+      border: 1px solid var(--sage-light);
+    }
+
+    /* SOURCE BADGE — 与 rd-method-box 同系 */
+    .source-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #f9f6f0; border-left: 4px solid var(--sage-dark);
+      border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 12px; color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    /* VALUE SUMMARY */
+    .value-summary {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0;
+    }
+    .value-card {
+      background: #fff; border-radius: 12px; padding: 20px;
+      border: 1px solid var(--light-gray); text-align: center;
+    }
+    .value-card .vc-icon {
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px; color: var(--sage-dark);
+    }
+    .value-card .vc-icon [data-lucide] {
+      width: 28px; height: 28px; flex-shrink: 0;
+    }
+    .value-card h4 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+    .value-card p { font-size: 13px; color: var(--gray); margin: 0; line-height: 1.5; }
+
+    /* PRINT / RESPONSIVE */
+    @media print {
+      #cursor, #cursor-follower, #navbar { display: none !important; }
+      body { cursor: auto !important; }
+      .sd-section { padding: 32px 40px; }
+      .feature-grid, .value-summary { grid-template-columns: 1fr 1fr; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      a[href]:after { content: none; }
+    }
+    @media (max-width: 768px) {
+      .sd-hero, .sd-section { padding-left: 24px; padding-right: 24px; }
+      .feature-grid, .value-summary { grid-template-columns: 1fr; }
+      .loop-flow { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <nav id="navbar" class="scrolled project-nav-simple">
+    <a href="index.html#product-world" class="project-back">← 返回作品集</a>
+    <a class="print-btn" onclick="window.print()">导出 PDF ↓</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="sd-hero">
+    <p class="eyebrow">产品 Sense · 社交设计分析 · 游戏 &amp; 生活</p>
+    <h1>生活和游戏中的社交设计分析</h1>
+    <p class="subtitle">从元梦之星的游戏大厅到微信状态的「就这样」按钮，记录我在真实体验中感受到的优秀社交设计与值得改进的空间。</p>
+    <div class="sd-meta">
+      <span><span class="lbl">研究来源</span> 本人真实使用体验</span>
+      <span><span class="lbl">用研补充</span> 小红书 · 微博 · 豆瓣用户反馈</span>
+      <span><span class="lbl">关注点</span> 社交门槛 · UGC 激励 · 轻量表达 · 隐私设计</span>
+    </div>
+  </section>
+
+  <!-- ============ PART I: 游戏 ============ -->
+  <section class="sd-section bg-off">
+    <div class="sd-inner">
+
+      <div class="part-header">
+        <div class="part-icon">
+          <i data-lucide="gamepad-2" class="ic-lg ic-sage"></i>
+        </div>
+        <div>
+          <h2>一、游戏经历：元梦之星的社交设计</h2>
+          <p>从摩尔庄园到糖豆人、鹅鸭杀，再到元梦之星开服第一天就入坑——最喜欢的是元梦狼人杀。</p>
+        </div>
+      </div>
+
+      <div class="sd-personal-note">
+        因为从小就很爱玩摩尔庄园这类型的游戏，以及之前玩过糖豆人、鹅鸭杀，所以元梦之星开服第一天就在玩了。目前最喜欢的模式是<strong>元梦狼人杀</strong>。以下整理了我认为最出色的两个社交设计亮点。
+      </div>
+
+      <div class="sd-highlight-list">
+
+        <!-- 亮点 1：游戏大厅 -->
+        <div class="sd-highlight-card">
+          <div class="sd-card-header">
+            <span class="sd-card-num">1</span>
+            <h3>游戏大厅 — 3D 自由广场，从设计上为轻量化社交服务</h3>
+          </div>
+          <div class="sd-card-body">
+            <h3 class="sd-sub-h sd-sub-h-first">对比传统手游的大厅设计</h3>
+            <table class="sd-compare-table">
+              <thead>
+                <tr>
+                  <th>维度</th>
+                  <th>传统手游大厅</th>
+                  <th>元梦之星大厅</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>进入后的状态</td>
+                  <td>纯功能选择界面，无社交场景</td>
+                  <td>身处 3D 公共广场，天然置身社交环境</td>
+                </tr>
+                <tr>
+                  <td>互动方式</td>
+                  <td>聊天框 / 语音，门槛较高</td>
+                  <td>点一下即可拥抱、抱起投掷、做动作</td>
+                </tr>
+                <tr>
+                  <td>是否需要加好友</td>
+                  <td>通常需要</td>
+                  <td>不需要，任何玩家均可即时互动</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>社交摩擦成本</td>
+                  <td>高（需主动打字 / 组队）</td>
+                  <td>极低（点击即互动，零输入压力）</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>广场里还内置了各种小型互动玩法，玩家可以一起玩、一起闹——<strong>零压力、零负担就能快速破冰，天然适合轻松社交</strong>。不需要加好友、不需要打字，进入游戏的第一秒就已经在「社交」里了。</p>
+
+            <div class="sd-insight">
+              <strong>设计洞察：</strong>降低互动门槛的核心不是「增加更多聊天功能」，而是<strong>把社交场景设为默认状态</strong>。玩家不需要主动进入社交，而是进入游戏就已经在社交里了。这种「环境式社交」设计远比依赖文字 / 语音更自然，也更适合轻量化破冰。
+            </div>
+          </div>
+        </div>
+
+        <!-- 亮点 2：星世界 UGC -->
+        <div class="sd-highlight-card">
+          <div class="sd-card-header">
+            <span class="sd-card-num">2</span>
+            <h3>星世界 — UGC 创作系统，把社交和创作绑定</h3>
+          </div>
+          <div class="sd-card-body">
+            <p>星世界内置了低门槛 UGC 编辑器，不用代码、像搭积木一样，普通人也能快速做出自己的原创地图，还能一键分享给好友，甚至开放给全网玩家游玩。</p>
+
+            <div class="sd-personal-note note-nested">
+              <strong>我的亲身经历：</strong>我自己也用这个编辑器做过地图。因为玩法有趣、节奏友好，受到很多玩家喜欢，还拿到了官方的创作奖励 200 元。
+            </div>
+
+            <div class="sd-stat-row">
+              <div class="sd-stat">
+                <span class="stat-num">2万+</span>
+                <span class="stat-label">地图游玩数</span>
+              </div>
+              <div class="sd-stat">
+                <span class="stat-num">4500+</span>
+                <span class="stat-label">玩家点赞数</span>
+              </div>
+              <div class="sd-stat">
+                <span class="stat-num">¥200</span>
+                <span class="stat-label">官方创作奖励</span>
+              </div>
+            </div>
+
+            <h3 class="sd-sub-h">设计亮点拆解</h3>
+
+            <div class="loop-flow">
+              <div class="loop-node">
+                <div class="loop-icon li-create">
+                  <i data-lucide="pen-tool" class="ic-md ic-sage"></i>
+                </div>
+                <p>创作地图</p>
+                <small>低门槛编辑器</small>
+              </div>
+              <span class="loop-arrow">→</span>
+              <div class="loop-node">
+                <div class="loop-icon li-share">
+                  <i data-lucide="share-2" class="ic-md ic-sage"></i>
+                </div>
+                <p>分享传播</p>
+                <small>一键开放全网</small>
+              </div>
+              <span class="loop-arrow">→</span>
+              <div class="loop-node">
+                <div class="loop-icon li-social">
+                  <i data-lucide="users" class="ic-md ic-sage"></i>
+                </div>
+                <p>社交互动</p>
+                <small>好友来玩 · 评论点赞</small>
+              </div>
+              <span class="loop-arrow">→</span>
+              <div class="loop-node">
+                <div class="loop-icon li-reward">
+                  <i data-lucide="award" class="ic-md ic-sage"></i>
+                </div>
+                <p>获得激励</p>
+                <small>流量 + 官方奖励</small>
+              </div>
+            </div>
+
+            <div class="sd-insight">
+              <strong>设计洞察：</strong><br>
+              ① <strong>把社交和创作绑定</strong>：好友可以来玩你的地图、一起闯关、互相点赞评论，社交关系在游玩中自然加深，不依赖单纯的文字聊天；<br>
+              ② <strong>降低创作门槛</strong>：积木式编辑器让每个人都能当游戏设计师，把「只能玩别人内容」变成「我也能创作内容」；<br>
+              ③ <strong>官方激励机制</strong>：优质地图能获得流量和奖励，形成「创作 — 分享 — 社交 — 激励」的<strong>正向循环飞轮</strong>，同时用 UGC 极大降低了官方的内容生产成本。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PART II: 生活 ============ -->
+  <section class="sd-section">
+
+    <div class="part-header">
+      <div class="part-icon">
+        <i data-lucide="smartphone" class="ic-lg ic-sage"></i>
+      </div>
+      <div>
+        <h2>二、生活经历：微信状态的「轻量级」社交表达</h2>
+        <p>在我看来，微信状态是微信生态内一种「轻量级」社交表达工具，我几乎每天使用。</p>
+      </div>
+    </div>
+
+    <!-- 用研来源 -->
+    <div class="source-badge">
+      <i data-lucide="database" class="ic-sm ic-sage"></i>
+      用研来源：小红书 · 微博 · 豆瓣 用户反馈汇总
+    </div>
+
+    <!-- 对比表 -->
+    <h3 class="sd-sub-h">朋友圈 vs 微信状态：两种截然不同的社交表达模式</h3>
+    <table class="sd-compare-table">
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>朋友圈</th>
+          <th>微信状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>内容属性</td>
+          <td>经过修饰、长久留存、高光时刻</td>
+          <td>随性碎碎念、24h 阅后即焚</td>
+        </tr>
+        <tr>
+          <td>社交压力</td>
+          <td>高（担心分组、没人赞、领导看）</td>
+          <td>低（「就这样」暗示不完美也没关系）</td>
+        </tr>
+        <tr>
+          <td>互动模式</td>
+          <td>广播式，点赞是人情世故</td>
+          <td>定向式，点赞是私密关心</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>本质定位</td>
+          <td>被评价的客体，展示「人设」</td>
+          <td>表达自我的主体，回归真实</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 核心价值 -->
+    <h3 class="sd-sub-h">核心价值</h3>
+    <div class="value-summary">
+      <div class="value-card">
+        <div class="vc-icon" aria-hidden="true"><i data-lucide="luggage"></i></div>
+        <h4>对抗「人设包袱」</h4>
+        <p>对抗朋友圈日益严重的社交压力，给用户一个不需要精心打磨的表达出口</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-icon" aria-hidden="true"><i data-lucide="circle-user"></i></div>
+        <h4>回归表达主体</h4>
+        <p>从「被评价的客体」回归到「表达自我的主体」，用户不再为点赞数焦虑</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-icon" aria-hidden="true"><i data-lucide="lock"></i></div>
+        <h4>筛选核心社交圈</h4>
+        <p>仅双方可见的互动模式，自然筛选出真正关心你的人，减少社交噪音</p>
+      </div>
+    </div>
+
+    <!-- 功能亮点 -->
+    <h3 class="sd-sub-h">关键功能亮点</h3>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="fc-icon" aria-hidden="true"><i data-lucide="pen-line"></i></div>
+        <h4>微文案微创新：「就这样」</h4>
+        <p>按钮叫「就这样」而非「发布 / 确定」。这是极佳的微文案设计，从心理暗示上降低发布门槛，鼓励「摆烂」和真实表达。</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon" aria-hidden="true"><i data-lucide="eye"></i></div>
+        <h4>互动隐私：仅双方可见</h4>
+        <p>点赞和评论仅发送方与接收方可见。消除了「共同好友」带来的社交噪音，让互动回归到点对点的亲密关系。</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon" aria-hidden="true"><i data-lucide="music"></i></div>
+        <h4>多媒体融合：内容流动站</h4>
+        <p>支持音乐分享（QQ 音乐）、视频号、实况图，成为微信生态内各类内容的「流动站」，打通内部生态。</p>
+      </div>
+    </div>
+
+    <div class="sd-insight">
+      <strong>设计洞察：</strong>微信状态的成功在于它精准捕捉了用户对朋友圈「社交疲劳」的心理，通过三个设计决策同时解决了「想说又怕说」的矛盾——24h 消失降低留存风险、「就这样」降低发布心理门槛、仅双方可见保护互动隐私。三者合力，才构成了完整的「低压社交」体验。
+    </div>
+  </section>
+
+  <!-- ============ 问题与改进 ============ -->
+  <section class="sd-section bg-off">
+    <div class="sd-inner">
+      <h2>三、微信状态：现存问题与改进建议</h2>
+      <div class="sd-divider"></div>
+      <p class="section-label">根据用研与个人长期使用观察，归纳出以下 4 个显著问题及对应的迭代方向。</p>
+
+      <!-- 问题列表 -->
+      <h3 class="sd-sub-h">现存问题</h3>
+      <div class="problem-list">
+
+        <div class="sd-problem-card">
+          <div class="sd-problem-header">
+            <span class="sd-problem-num">1</span>
+            <h3>并发性限制（单线程）：新状态会覆盖旧状态</h3>
+            <span class="severity sev-medium">中等优先级</span>
+          </div>
+          <div class="sd-problem-body">
+            <div class="sd-problem-scenario">
+              用户场景：一天中既去了公园又吃了大餐，想分开发两条记录，但目前只能保留最后一条。
+            </div>
+            <p>这与用户将其作为「电子日记」的使用心智直接冲突。多次记录的欲望被强制压缩成一条，导致用户要么放弃记录，要么把所有内容挤进一条状态（破坏了「轻量」的初衷）。</p>
+          </div>
+        </div>
+
+        <div class="sd-problem-card">
+          <div class="sd-problem-header">
+            <span class="sd-problem-num">2</span>
+            <h3>隐私漏洞（严重 Bug）：iPad 端可破解「模糊」效果</h3>
+            <span class="severity sev-critical">严重</span>
+          </div>
+          <div class="sd-problem-body">
+            <div class="sd-problem-scenario">
+              风险：用户以为是私密的「模糊」吐槽，结果通过 iPad 端 + 系统设置被「裸奔」查看。
+            </div>
+            <p>这严重违背了产品的安全感承诺。用户使用「模糊」功能的前提是信任它是真实有效的隐私保护，而非一层可以轻易绕过的装饰性滤镜。一旦信任崩塌，整个产品的「私密感」价值主张将受到动摇。</p>
+          </div>
+        </div>
+
+        <div class="sd-problem-card">
+          <div class="sd-problem-header">
+            <span class="sd-problem-num">3</span>
+            <h3>数据资产流失：缺乏回顾和导出机制</h3>
+            <span class="severity sev-medium">中等优先级</span>
+          </div>
+          <div class="sd-problem-body">
+            <div class="sd-problem-scenario">
+              需求：多数用户将其视为「电子日记」，但无法导出，24h 后难以回溯，且缺少仪式感的月度 / 年度总结。
+            </div>
+            <p>状态消失后，用户的情绪记录和生活片段也随之蒸发。这与「电子日记」的使用心智产生了根本矛盾，削弱了用户长期使用的动力。</p>
+          </div>
+        </div>
+
+        <div class="sd-problem-card">
+          <div class="sd-problem-header">
+            <span class="sd-problem-num">4</span>
+            <h3>运营退步：节日限定图标 / 玩法的减少</h3>
+            <span class="severity sev-low">低优先级</span>
+          </div>
+          <div class="sd-problem-body">
+            <div class="sd-problem-scenario">
+              观察：2025 年母亲节、儿童节缺失节日专属状态，融化、头秃等高互动表情被删减。
+            </div>
+            <p>节日限定内容是天然的「发状态触发器」，它们给用户一个理由在特定节点表达情感。这些内容的减少，直接降低了用户的发布频次，也弱化了微信状态的「时令感」和仪式感。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 改进建议 -->
+      <h3 class="sd-sub-h mt-lg">改进建议与迭代方向</h3>
+      <div class="improve-list">
+
+        <div class="improve-card">
+          <div class="improve-header">
+            <span class="improve-num">1</span>
+            <h3>引入「时间轴」或「故事线」（针对覆盖问题）</h3>
+          </div>
+          <div class="improve-body">
+            <p>允许 24 小时内发布多条状态，不进行覆盖，而是像 Instagram Story 那样形成序列，或者在个人主页下拉时形成当日的时间轴。</p>
+            <ul>
+              <li>满足用户一天内多次分享不同心情的需求</li>
+              <li>增加 UGC 总量，同时保留「24h 消失」的轻量属性</li>
+              <li>序列形式让「一天的故事」更完整，增强仪式感</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="improve-card">
+          <div class="improve-header">
+            <span class="improve-num">2</span>
+            <h3>强化「电子日记」属性（针对回顾需求）</h3>
+          </div>
+          <div class="improve-body">
+            <p><strong>状态月报：</strong>每月生成一张可视化卡片（类似网易云年度报告），回顾这个月的情绪轨迹。</p>
+            <p><strong>结合 LLM：</strong>利用大模型分析用户一个月的文字和表情，生成「本月人格关键词」（如：熬夜冠军、emo 小狗、元气特种兵），并配上一段 AI 评语。</p>
+            <ul>
+              <li>支持一键导出：将历史状态导出为 PDF 或长图，满足用户「留念」心理</li>
+              <li>仪式感的年度 / 月度总结，可自然形成社交传播（类似网易云的「年度歌单」）</li>
+              <li>AI 评语增加趣味性与共鸣感，提升分享欲</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="improve-card">
+          <div class="improve-header">
+            <span class="improve-num">3</span>
+            <h3>修复隐私渲染漏洞（针对安全 Bug）</h3>
+          </div>
+          <div class="improve-body">
+            <p>修复 iPad 端透视模糊图片的渲染漏洞，确保「模糊」效果在所有平台和系统设置下均有效。</p>
+            <ul>
+              <li>建议在图像层面而非 CSS/渲染层面实现模糊，防止系统级设置绕过</li>
+              <li>这是产品安全感承诺的底线，应列为最高优先级修复</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="improve-card">
+          <div class="improve-header">
+            <span class="improve-num">4</span>
+            <h3>恢复运营节奏：节日限定内容策略</h3>
+          </div>
+          <div class="improve-body">
+            <p>恢复母亲节、儿童节等重要节日的专属状态图标与互动玩法，适度补充删减的高互动表情（如融化、头秃等）。</p>
+            <ul>
+              <li>节日内容是「强触发器」，能有效提升特定时期的发布频次</li>
+              <li>可建立「限定内容日历」，提前规划全年节点，形成稳定的运营节奏</li>
+              <li>限定内容本身也具有社交传播属性，是低成本的自然增长入口</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sd-insight mt-block">
+        <strong>总结：</strong>微信状态是少数真正理解「社交压力」并通过设计主动化解的产品。它的核心价值不在于功能堆砌，而在于三个精准的设计决策共同构建了「低压社交」体验。目前存在的问题也并非根本性缺陷，而是产品力量和运营重视程度的阶段性退步——按优先级修复，这个产品还有很大的用户深度和活跃度提升空间。
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var cursor = document.getElementById('cursor');
+      var follower = document.getElementById('cursor-follower');
+      if (!cursor || !follower) return;
+      var mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX; mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px'; cursor.style.top = mouseY + 'px';
+      });
+      function animate() {
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+        follower.style.left = followerX + 'px'; follower.style.top = followerY + 'px';
+        requestAnimationFrame(animate);
+      }
+      animate();
+      if (window.lucide) lucide.createIcons();
+      document.querySelectorAll('a, button').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { document.body.classList.add('cursor-hover'); });
+        el.addEventListener('mouseleave', function() { document.body.classList.remove('cursor-hover'); });
+      });
+    })();
+  </script>
+</body>
+</html>

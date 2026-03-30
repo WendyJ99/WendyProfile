@@ -626,6 +626,7 @@ nav.scrolled {
 .wbc-app      { transform: translateY(0px); }
 .wbc-research { transform: translateY(28px); }
 .wbc-redesign { transform: translateY(-16px); }
+.wbc-social   { transform: translateY(12px); }
 
 /* 白板项目卡片：纯白卡片，模拟贴在白板上 */
 .wb-card-link {
@@ -696,6 +697,16 @@ nav.scrolled {
   opacity: 0.35;
   transform: rotate(12deg);
   pointer-events: none;
+}
+
+/* 社交连接图 */
+.wb-social-graph {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(107,138,80,0.18);
+  border-radius: 6px;
+  padding: 12px 14px 10px;
+  align-self: flex-start;
+  width: 100%;
 }
 
 /* 迷你柱状图 */
@@ -795,7 +806,7 @@ nav.scrolled {
 
 @media (max-width: 900px) {
   .wb-canvas { grid-template-columns: 1fr; gap: 32px; }
-  .wbc-app,.wbc-research,.wbc-redesign { transform: none; }
+  .wbc-app,.wbc-research,.wbc-redesign,.wbc-social { transform: none; }
   .wb-annotation { display: none; }
 }
 
